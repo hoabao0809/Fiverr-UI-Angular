@@ -1,0 +1,14 @@
+.card-img {
+    border-radius: 5px;
+    transition: all .3s ease;
+
+    &:hover{
+        filter: brightness(.8);
+    }
+}
+
+.card-title {
+    color: #222325;
+    text-decoration: none;
+    padding-top: 0.5em;
+}

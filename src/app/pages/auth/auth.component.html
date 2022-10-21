@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+          <div class="form-group">
+            <label for="">Email</label>
+            <input
+              type="text"
+              placeholder="Email"
+              name="email"
+              id="form3Example1cg"
+              class="form-control form-control-lg"
+              ngModel
+              required
+              #Email="ngModel"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="Email.errors && (Email.dirty || Email.touched)"
+            >
+              <!-- Kiểm tra rỗng -->
+              <div *ngIf="Email.errors.required">Vui lòng nhập tài khoản</div>
+              <!-- Kiểm tra độ dài -->
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Password</label>
+            <input
+              type="text"
+              name="password"
+              id="form3Example3cg"
+              placeholder="Mật khẩu"
+              class="form-control form-control-lg"
+              ngModel
+              required
+              #Password="ngModel"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="Password.errors && (Password.dirty || Password.touched)"
+            >
+              <div *ngIf="Password.errors.required">Vui lòng nhập mật khẩu</div>
+            </div>
+          </div>
+
+
+
+          <button class="btn btn-danger" [disabled]='!loginForm.valid'>Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

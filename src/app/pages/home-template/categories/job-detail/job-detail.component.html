@@ -1,0 +1,560 @@
+<div class="container-fluid services-cover">
+  <div class="max-width-container">
+    <div class="services-container">
+      <div class="row">
+        <!-- Service Left Starts -->
+
+        <div class="col-lg-8 service-detail">
+          <!-- Service Detail Starts -->
+          <div class="service-detail__content">
+            <div class="service-header">
+              <h4>{{ detailJob?.name }}</h4>
+            </div>
+            <div class="seller-overview py-4">
+              <div class="user-profile-image">
+                <img src="../../../assets/img/avatar1.jpg" />
+                <div class="profile-name">
+                  <span class="user-status">{{
+                    createdUser?.name | titlecase
+                  }}</span>
+                  <span class="top-seller" style="padding-left: 5px"
+                    >Top Seller</span
+                  >
+                </div>
+              </div>
+              <div class="user-info">
+                <ng-container class="rates" *ngFor="let rate of rateArray">
+                  <i class="fas fa-star"></i>
+                </ng-container>
+                <span class="rate-score">{{ rate }}</span>
+                <span class="order-await">2 Orders in Queue</span>
+              </div>
+            </div>
+
+            <div class="service-img">
+              <img
+                class="img-bg"
+                [src]="
+                  detailJob?.image || detailJob?.avatar
+                    ? detailJob?.image || detailJob?.avatar
+                    : 'assets/img/fiverr.jpg'
+                "
+              />
+              <img
+                class="img-overlay"
+                [src]="
+                  detailJob.image || detailJob.avatar
+                    ? detailJob.image || detailJob.avatar
+                    : detailJob.avatar || 'assets/img/fiverr.jpg'
+                "
+              />
+            </div>
+            <!-- Service Detail Ends -->
+
+            <!-- About Gig Starts -->
+            <div class="about-gig pt-5">
+              <h2>About this Gig</h2>
+              <div class="about-gig__1">
+                <p>
+                  <strong
+                    ><u
+                      >Themeforest wordpress theme installation and wordpress
+                      customization</u
+                    ></strong
+                  >
+                </p>
+                <p>
+                  A perfect website = perfect business... If you already buy or
+                  just want to buy a themeforest wordpress theme and you're
+                  looking for a wordpress developer to install wordpress,
+                  customization then you're in right place.
+                </p>
+              </div>
+
+              <div class="about-gig__shown">
+                <div class="about-gig__2">
+                  <p>
+                    <strong
+                      ><u>Why would you choose me for your job?</u></strong
+                    >
+                  </p>
+                  <p>★ Professional Designer and developer</p>
+                  <p>★ On time Delivery</p>
+                  <p>★ Unlimited Revision</p>
+                  <p>★ 100% of client satisfaction</p>
+                  <p>★ Technical support</p>
+                </div>
+
+                <div class="about-gig__3">
+                  <p>
+                    <strong><u>I will give you that facility</u></strong>
+                  </p>
+                  <p><strong>❉</strong> Find Best Theme for you</p>
+                  <p><strong>❉ Perfect customization</strong></p>
+                  <p><strong>❉ </strong>Advacne Customization</p>
+                  <p><strong>❉ Ad new feature on your website</strong></p>
+                  <p><strong>❉ </strong>Ecommerce customization</p>
+                  <p><strong>❉ </strong>Landing page design</p>
+                  <p><strong>❉</strong> wordpress blog platform</p>
+                  <p><strong>❉</strong> <strong>Fix php issues</strong></p>
+                  <p><strong>❉</strong> Fix CSS issues</p>
+                  <p><strong>❉</strong> <strong>Demo content setup</strong></p>
+                  <p><strong>❉</strong> Mail chimp integration</p>
+                  <p>
+                    <strong>❉</strong> <strong>Custom form Ingratiation</strong>
+                  </p>
+                  <p>
+                    <strong
+                      ><em><u>And much more...</u></em></strong
+                    >
+                  </p>
+                  <p><br /></p>
+                  <p>
+                    I'm excited to work with you.. Just waiting for your
+                    message, Please Sent a your query
+                  </p>
+                </div>
+              </div>
+
+              <mat-expansion-panel
+                class="about-gig__hidden"
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    + See {{ panelOpenState ? "Less" : "More" }}
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="about-gig__2">
+                  <p>
+                    <strong
+                      ><u>Why would you choose me for your job?</u></strong
+                    >
+                  </p>
+                  <p>★ Professional Designer and developer</p>
+                  <p>★ On time Delivery</p>
+                  <p>★ Unlimited Revision</p>
+                  <p>★ 100% of client satisfaction</p>
+                  <p>★ Technical support</p>
+                </div>
+
+                <div class="about-gig__3">
+                  <p>
+                    <strong><u>I will give you that facility</u></strong>
+                  </p>
+                  <p><strong>❉</strong> Find Best Theme for you</p>
+                  <p><strong>❉ Perfect customization</strong></p>
+                  <p><strong>❉ </strong>Advacne Customization</p>
+                  <p><strong>❉ Ad new feature on your website</strong></p>
+                  <p><strong>❉ </strong>Ecommerce customization</p>
+                  <p><strong>❉ </strong>Landing page design</p>
+                  <p><strong>❉</strong> wordpress blog platform</p>
+                  <p><strong>❉</strong> <strong>Fix php issues</strong></p>
+                  <p><strong>❉</strong> Fix CSS issues</p>
+                  <p><strong>❉</strong> <strong>Demo content setup</strong></p>
+                  <p><strong>❉</strong> Mail chimp integration</p>
+                  <p>
+                    <strong>❉</strong> <strong>Custom form Ingratiation</strong>
+                  </p>
+                  <p>
+                    <strong
+                      ><em><u>And much more...</u></em></strong
+                    >
+                  </p>
+                  <p><br /></p>
+                  <p>
+                    I'm excited to work with you.. Just waiting for your
+                    message, Please Sent a your query
+                  </p>
+                </div>
+              </mat-expansion-panel>
+
+              <div class="about-gig__metadata pt-3">
+                <div class="row">
+                  <div class="col-12 col-sm-4 about-gig__specialization">
+                    <p>Specialization</p>
+                    <p>
+                      Blog, Business, Education, Portfolio, Entertainment,
+                      Non-profit, Wedding, Podcasting, Online Communities,
+                      Forms, Crowdfunding, Wiki /Knowledge, SaaS, Job Board,
+                      Portal Brochure
+                    </p>
+                  </div>
+                  <div class="col-12 col-sm-4 about-gig__supported">
+                    <p>Supported plugin types</p>
+                    <p>
+                      Marketing, Payment, Forum, Social, Media, Customer
+                      Support, Shipping, Inventory, Analytics, Video, Form,
+                      Events, Music, Chat, Membership, Map, FAQ, Gallery
+                    </p>
+                  </div>
+                  <div class="col-12 col-sm-4 about-gig__specialization">
+                    <p>Integrating Plugins</p>
+                    <p>
+                      Adsense, Akismet, All in One SEO Pack, Amazon, Aweber,
+                      Clickbank, Contact Form 7, Facebook, Getresponse, Gravity
+                      Forms, Instagram, LinkedIn, Mailchimp, OpenCart, Paypal,
+                      Twitter, Vimeo, W3 Total Cache, WooCommerce, WordPress SEO
+                      by Yoast, Youtube, Elementor
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- About Gig Ends -->
+
+            <!-- About Seller Starts -->
+            <div class="about-seller">
+              <h2>About The Seller</h2>
+              <div class="seller-info py-4">
+                <div class="user-profile-image">
+                  <img src="../../../assets/img/avatar1.jpg" />
+                </div>
+
+                <div class="profile-name">
+                  <div class="profile-name__top">
+                    <div class="user-status">
+                      {{ createdUser?.name | titlecase }}
+                    </div>
+                  </div>
+
+                  <div class="profile-name__mid">
+                    <p>
+                      Don't be afraid to give up the good to go for the great
+                    </p>
+                  </div>
+
+                  <div class="user-info__rate">
+                    <ng-container class="rates" *ngFor="let rate of rateArray">
+                      <i class="fas fa-star"></i>
+                    </ng-container>
+                    <span class="rate-score">{{ rate }}</span>
+                    <span class="order-await">(1k+)</span>
+                  </div>
+                  <button class="btn-seller">Contact Me</button>
+                </div>
+              </div>
+
+              <div class="seller-detail">
+                <div class="seller-detail__content">
+                  <div class="seller-detail__top">
+                    <div class="seller-top__left">
+                      <ul>
+                        <li>
+                          From
+                          <strong>Bangladesh</strong>
+                        </li>
+                        <li>
+                          Member since
+                          <strong>Aug 2020</strong>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="seller-top__right">
+                      <ul>
+                        <li>
+                          Avg. response time
+                          <strong>1 hour</strong>
+                        </li>
+                        <li>
+                          Last delivery
+                          <strong>about 3 hours</strong>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="seller-detail__bottom">
+                    <div class="seller-greet">
+                      <p>
+                        Hi, I'm {{ createdUser?.name | titlecase }}, I'm a
+                        professional web designer and developer with over 3
+                        years of experience.
+                      </p>
+                      <p>My skill---</p>
+                    </div>
+                    <div class="seller-skills">
+                      <ng-container *ngFor="let skill of createdUser.skill">
+                        <p style="margin-bottom: 0.25rem">→ {{ skill }}</p>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- About Gig Ends -->
+
+            <!-- Comments Starts -->
+
+            <div class="accordion w-100 py-4" id="accordion">
+              <div class="">
+                <div
+                  href="#review"
+                  data-toggle="collapse"
+                  class="nav-link p-0 d-block d-lg-none d-xl-none"
+                >
+                  <span class="rated-title" style="text-align: left"
+                    >144 Review
+                    <span>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i> <i class="fas fa-star"></i> 5
+                    </span>
+                  </span>
+                  <i
+                    style="text-align: right; float: right"
+                    class="fas fa-chevron-down clear"
+                  ></i>
+                </div>
+
+                <div class="rated-title h5 p-0 d-none d-lg-block d-xl-block">
+                  144 Review<span>
+                    <i class="fas fa-star" style="padding-left: 5px"></i>
+                    <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i> <i class="fas fa-star"></i> 5
+                  </span>
+                </div>
+
+                <div
+                  class="collapse d-lg-flex flex-column"
+                  id="review"
+                  data-parent="#accordion"
+                >
+                  <!-- <div class="review-progress">
+                    <div class="review-progress__item">
+                      <span>5 Stars</span>
+                      <mat-progress-bar
+                        class="progress-bar"
+                        mode="determinate"
+                        value="80"
+                      ></mat-progress-bar>
+                      <span>(144)</span>
+                    </div>
+                    <div class="review-progress__item">
+                      <span>4 Stars</span>
+                      <mat-progress-bar
+                        color="warning"
+                        class="progress-bar"
+                        mode="determinate"
+                        value="60"
+                      ></mat-progress-bar>
+                      <span>(100)</span>
+                    </div>
+                    <div class="review-progress__item">
+                      <span>3 Stars</span>
+                      <mat-progress-bar
+                        color="warning"
+                        class="progress-bar"
+                        mode="determinate"
+                        value="0"
+                      ></mat-progress-bar>
+                      <span>(0)</span>
+                    </div>
+                    <div class="review-progress__item">
+                      <span>2 Stars</span>
+                      <mat-progress-bar
+                        color="warning"
+                        class="progress-bar"
+                        mode="determinate"
+                        value="0"
+                      ></mat-progress-bar>
+                      <span>(0)</span>
+                    </div>
+                    <div class="review-progress__item">
+                      <span>1 Stars</span>
+                      <mat-progress-bar
+                        color="warning"
+                        class="progress-bar"
+                        mode="determinate"
+                        value="0"
+                      ></mat-progress-bar>
+                      <span>(0)</span>
+                    </div>
+                  </div> -->
+                  <div class="table-review">
+                    <div class="table-review__content">
+                      <table>
+                        <tbody class="">
+                          <tr>
+                            <td><button class="btn-rated">5 Stars</button></td>
+                            <td>
+                              <mat-progress-bar
+                                mode="determinate"
+                                color="warn"
+                                value="100"
+                              ></mat-progress-bar>
+                            </td>
+                            <td class="star-review__rated">(144)</td>
+                          </tr>
+                          <tr class="no-rating">
+                            <td><button>4 Stars</button></td>
+                            <td>
+                              <mat-progress-bar
+                                mode="determinate"
+                                color="warn"
+                                value="0"
+                              ></mat-progress-bar>
+                            </td>
+                            <td class="star-review">(0)</td>
+                          </tr>
+                          <tr class="no-rating">
+                            <td><button>3 Stars</button></td>
+                            <td>
+                              <mat-progress-bar
+                                mode="determinate"
+                                color="warn"
+                                value="0"
+                              ></mat-progress-bar>
+                            </td>
+                            <td class="star-review">(0)</td>
+                          </tr>
+                          <tr class="no-rating">
+                            <td><button>2 Stars</button></td>
+                            <td>
+                              <mat-progress-bar
+                                mode="determinate"
+                                color="warn"
+                                value="0"
+                              ></mat-progress-bar>
+                            </td>
+                            <td class="star-review">(0)</td>
+                          </tr>
+                          <tr class="no-rating">
+                            <td><button>1 Star</button></td>
+                            <td>
+                              <mat-progress-bar
+                                mode="determinate"
+                                color="warn"
+                                value="0"
+                              ></mat-progress-bar>
+                            </td>
+                            <td class="star-review">(0)</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="table-review__break">
+                      <h6>Rating Breakdown</h6>
+                      <ul class="list-unstyled">
+                        <li>
+                          <span>Seller communication level</span>
+                          <span>5 <i class="fas fa-star"></i></span>
+                        </li>
+                        <li>
+                          <span>Recommend to a friend</span>
+                          <span>4.9 <i class="fas fa-star"></i></span>
+                        </li>
+                        <li>
+                          <span>Service as described</span>
+                          <span>5 <i class="fas fa-star"></i></span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="job-comment pt-3">
+                    <div class="job-comment__container">
+                      <div class="user-comment__img">
+                        <img src="../../../../../assets/img/avatar1.jpg" />
+                      </div>
+                      <div class="user-comment__text">
+                        <p class="name-cmt" style="margin-bottom: 0">
+                          riprockman87
+                        </p>
+                        <div class="user-comment__flag">
+                          <span
+                            ><i class="fas fa-flag-usa"></i>United States</span
+                          >
+                        </div>
+                        <div class="user-comment__cmt">
+                          <p>
+                            Thank you for the positive feedback, looking forward
+                            to working with you again.
+                          </p>
+                        </div>
+                        <div class="user-comment__publish">
+
+                          <p>Published 2 weeks ago</p>
+                        </div>
+                        <div class="user-comment__publish">
+                          <span
+                          ><i class="fas fa-thumbs-up"></i>Helpful</span
+                        >
+                        <span
+                          ><i class="fas fa-thumbs-down"></i>Not Helpful</span
+                        >
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div *ngFor="let comment of comments">
+              <p>{{ comment.content }}</p>
+            </div> -->
+          </div>
+        </div>
+        <!-- Service Left Ends -->
+
+        <!-- Service Right Starts -->
+        <div class="col-lg-4 service-book">
+          <mat-tab-group mat-align-tabs="center">
+            <ng-container *ngFor="let package of packages">
+              <mat-tab label="{{ package.type }}">
+                <div class="packages-container sticky">
+                  <div class="package-header">
+                    <p class="package-name">{{ package?.name }}</p>
+                    <!-- <p class="package-price">US$ {{ package.price }}</p> -->
+                    <p class="package-price">
+                      US$
+                      {{ package?.price }}
+                    </p>
+                  </div>
+                  <div class="package-body">
+                    {{ package.description }}
+                  </div>
+                  <div class="package-bottom">
+                    <span
+                      ><i class="fas fa-clock"></i>{{ package?.delivery }} days
+                      delivery</span
+                    >
+                    <span
+                      ><i class="fas fa-sync-alt"></i> Unlimited Revisions</span
+                    >
+                  </div>
+                </div>
+                <div class="service-btn">
+                  <div class="service-btn__content">
+                    <p>
+                      Choose your plan <i class="fas fa-question-circle"></i>
+                    </p>
+                    <div class="service-btn__choice">
+                      <mat-radio-button class="example-margin" value="after"
+                        >Order once</mat-radio-button
+                      >
+                      <mat-radio-button class="example-margin" value="before"
+                        >Subscribe for <span>3 months</span></mat-radio-button
+                      >
+                    </div>
+                    <div class="service-button">
+                      <a
+                        routerLink="/checkout/order-details/{{ idDetailJob }}/{{
+                          package.price
+                        }}"
+                        >Continue (US${{ package?.price }})</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+            </ng-container>
+          </mat-tab-group>
+        </div>
+        <!-- Service Right Ends -->
+      </div>
+    </div>
+  </div>
+</div>

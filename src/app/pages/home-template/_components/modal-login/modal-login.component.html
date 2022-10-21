@@ -1,0 +1,89 @@
+<!-- Modal HTML Markup -->
+<div id="loginModal" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title">Sign In to Fiverr</h1>
+      </div>
+      <div class="modal-body">
+        <div class="login-social">
+          <div class="login-facebook">
+            <a
+              ><i class="fab fa-facebook"></i
+              ><span>Continue with Facebook</span></a
+            >
+          </div>
+          <div class="login-google">
+            <a
+              ><i class="fab fa-google"></i><span>Continue with Google</span></a
+            >
+          </div>
+          <div class="login-apple">
+            <a><i class="fab fa-apple"></i><span>Continue with Apple</span></a>
+          </div>
+        </div>
+        <div class="form-separator"><span>or</span></div>
+
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+          <div class="form-outline mb-4 form-group">
+            <input
+              type="text"
+              placeholder="Email"
+              name="email"
+              id="form3Example1cg"
+              class="form-control form-control-lg"
+              ngModel
+              required
+              #Email="ngModel"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="Email.errors && (Email.dirty || Email.touched)"
+            >
+              <!-- Kiểm tra rỗng -->
+              <div *ngIf="Email.errors.required">Vui lòng nhập tài khoản</div>
+              <!-- Kiểm tra độ dài -->
+            </div>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input
+              type="text"
+              name="password"
+              id="form3Example3cg"
+              placeholder="Mật khẩu"
+              class="form-control form-control-lg"
+              ngModel
+              required
+              #Password="ngModel"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="Password.errors && (Password.dirty || Password.touched)"
+            >
+              <div *ngIf="Password.errors.required">Vui lòng nhập mật khẩu</div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <button
+              class="btn btn-block btn-lg gradient-custom-4 button-continue"
+              [disabled]="!loginForm.valid"
+            >
+              Continue
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <span
+          >Not a member yet?
+          <a type="button" (click)="signUp()">Join Now </a></span
+        >
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

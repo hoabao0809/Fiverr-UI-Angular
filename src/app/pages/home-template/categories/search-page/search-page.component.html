@@ -1,0 +1,65 @@
+<div class="container-fluid services-cover">
+  <div class="max-width-container">
+    <div class="services-container">
+      <div class="services-header">
+        <h2>Results for "<em>{{ searchKeyword }}</em>"</h2>
+      </div>
+
+      <div class="services-filter py-3">
+        <div class="row">
+          <div class="col-12 col-xs-12 col-md-6">
+            <div class="filter-options">
+              <div class="filter-option">
+                Service Options <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="filter-option">
+                Seller Details <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="filter-option">
+                Budget <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="filter-option">
+                Delivery Time <i class="fas fa-chevron-down"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-12 col-xs-12 col-md-6"
+            style="align-self: center; padding-right: 3rem"
+          >
+            <div class="filter-toggle">
+              <ng-container *ngFor="let toggle of toggleSliders">
+                <div class="toggleBtn">
+                  <mat-slide-toggle
+                    color="green"
+                    name="{{ toggle.type }}"
+                    [(ngModel)]="toggle.isChecked"
+                    (change)="onChange($event)"
+                  ></mat-slide-toggle
+                  ><span>{{ toggle.name }}</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="services-found py-3 clear">
+            <p>{{ servicesCount }} services found</p>
+            <p class="sort-by">
+              Sort by <b>Best Selling</b><i class="fas fa-chevron-down"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-results">
+        <div class="row justify-content-around">
+          <div *ngFor="let job of productArray">
+            <app-job-card
+              class="col-12 col-sm-6 col-md-4 col-lg-3 job-card"
+              [job]="job"
+            ></app-job-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

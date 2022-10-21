@@ -1,0 +1,77 @@
+<div class="quan-li-phim">
+  <div class="d-flex justify-content-around align-items-center mb-2">
+    <button
+      mat-raised-button
+      color="primary"
+      data-toggle="modal"
+      data-target="#ModalPhim"
+      (click)="themPhim()"
+    >
+      Thêm công việc
+    </button>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        placeholder="Khóa học"
+        [value]="keyword"
+        [(ngModel)]="keyword"
+        (keyup)="handleSearch()"
+      />
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" (click)="Logout()">
+      Đăng Xuất
+    </button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Mã công việc</th>
+        <th>Tên công việc</th>
+        <th>Hình Ảnh</th>
+        <th>Giá ($USD)</th>
+        <th>Người tạo</th>
+        <th>Thao tác</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="mangDanhSachPhim">
+        <tr *ngFor="let item of mangDanhSachPhim; let index = index">
+          <td>{{ index + 1 }}</td>
+          <td>{{ item._id }}</td>
+          <td>{{ item.name }}</td>
+
+          <td>
+            <img
+              src="{{ item.image }}"
+              class="img-fluid"
+              style="width: 400px"
+            />
+          </td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.userCreated }}</td>
+          <td>
+            <div class="Btn-chuc-nang">
+              <button
+                class="mr-2"
+                mat-raised-button
+                (click)="suaPhim(item)"
+                data-toggle="modal"
+                data-target="#ModalPhim"
+              >
+                Sửa
+              </button>
+              <button mat-raised-button color="warn" (click)="xoaPhim(item)">
+                Xóa
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+<!-- Modal -->

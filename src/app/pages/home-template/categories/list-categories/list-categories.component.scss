@@ -1,0 +1,156 @@
+.header-cover {
+  background: url("./../../../../../assets/img/mobile_Programming_and_Tech.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+
+  @media only screen and (min-width: 576px) {
+    background: #fff;
+    height: 100%;
+  }
+}
+
+.header-category {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9;
+  align-items: center;
+  align-self: center;
+
+  h1 {
+    font-size: 24px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .video {
+    display: none;
+  }
+
+  @media only screen and (min-width: 576px) {
+    h1 {
+      font-size: 32px;
+      line-height: 120%;
+      margin-bottom: 0;
+
+      @media only screen and (min-width: 576px) {
+        font-size: 40px;
+        color: #222325;
+        text-transform: none;
+      }
+    }
+
+    .subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+
+      @media only screen and (min-width: 576px) {
+        font-size: 16px;
+        font-weight: 400;
+        color: #62646a;
+      }
+    }
+
+    .video {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @media only screen and (min-width: 576px) {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.categories-cover {
+  padding-top: 0.5rem;
+  @media only screen and (min-width: 576px) {
+    padding-top: 1rem;
+  }
+}
+
+.max-width-container {
+  max-width: 95%;
+  margin: auto;
+}
+
+.categories-list {
+  padding-top: 1rem;
+
+  .categories-name__fixed {
+    list-style: none;
+    display: none;
+
+    @media only screen and (min-width: 576px) {
+      display: inline-block;
+      a {
+        text-decoration: none;
+        color: #222325;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .categories-name {
+    list-style: none;
+    margin-bottom: 1rem;
+    padding: 0 0 1rem 0;
+    border-bottom: 1px solid #e4e5e7;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @media only screen and (min-width: 576px) {
+      margin-bottom: 1rem;
+      padding: 0;
+      border-bottom: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #222325;
+
+      transition: 0.1s all ease-in-out;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      @media only screen and (min-width: 576px) {
+        text-decoration: none;
+        color: #7a7d85;
+        &:hover {
+          color: #1dbf73;
+
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .right-icon {
+      float: right;
+      color: #7a7d85;
+      cursor: pointer;
+
+      @media only screen and (min-width: 576px) {
+        display: none;
+      }
+    }
+  }
+}

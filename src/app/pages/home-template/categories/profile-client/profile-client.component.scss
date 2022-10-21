@@ -1,0 +1,344 @@
+.container-fluid {
+  background-color: #fafafa;
+}
+
+.card-container {
+  width: 95%;
+  margin: auto;
+}
+
+.client-cover {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.box-cover {
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  border: 1px solid #dadbdd;
+  background: #fff;
+  width: 90%;
+  margin: auto;
+  //   box-shadow: 5px 5px 26px 5px rgba(0,0,0,0.05);
+}
+
+// ============Left Section=====================
+
+.clientInfo__top {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .user-image {
+    width: 150px;
+    height: 150px;
+    font-size: 3em;
+    margin: auto;
+
+    &::before {
+      background: rgba(0, 0, 0, 0.65);
+      content: "\f030";
+      // -----------Lưu ý: font-family và font-weight
+      font-family: "Font Awesome\ 5 Free";
+      font-weight: 900;
+      //-------------
+      color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      z-index: 3;
+      opacity: 0;
+      width: 150px;
+      height: 150px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-transition: opacity 0.3s ease-in-out;
+      -o-transition: opacity 0.3s ease-in-out;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover:before {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+  .client-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222325;
+    text-align: center;
+    display: block;
+    margin-bottom: 0;
+    padding: 1rem 0 0.25rem;
+  }
+
+  .fa-edit {
+    cursor: pointer;
+    color: #b5b6ba;
+    font-size: 15px;
+    transition: 0.2s all ease-in-out;
+
+    &:hover {
+      color: #222325;
+    }
+  }
+
+  .preview-profile {
+    button {
+      padding: 0.4rem;
+      width: 100%;
+      background: #fff;
+      font-size: 14px;
+      border: 1px solid #7a7d85;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #7a7d85;
+      transition: 0.2s all ease-in-out;
+
+      &:hover {
+        background: #7a7d85;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.clientInfo__bottom {
+  padding-top: 1rem;
+  border-top: 0.5px solid #b5b6ba;
+  ul {
+    &:first-child {
+      margin-bottom: 0.5rem;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    span {
+      font-size: 14px;
+
+      &:last-child {
+        font-weight: 600;
+      }
+      i {
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+.clientInfo-box2 {
+  .clientInfo__top {
+    .logo-learn {
+      text-align: left;
+      padding-bottom: 1rem;
+      img {
+        border-radius: 0 !important;
+      }
+    }
+
+    .preview-profile {
+      button {
+        background: #1dbf73;
+        color: #fff;
+        outline: none;
+        // border: 1dbf73;
+        border: 1px solid #1dbf73;
+        transition: 0.2s all ease-in-out;
+        &:hover {
+          background: #19a463;
+        }
+      }
+    }
+  }
+}
+
+.logo-text {
+  h5 {
+    &::before {
+      content: "";
+      background: url(https://npm-assets.fiverrcdn.com/assets/@fiverr-private/fiverr_learn/enroll-icon.69b770f.svg)
+        50% no-repeat;
+      display: block;
+      height: 96px;
+      margin-bottom: 16px;
+    }
+  }
+
+  p {
+    font-weight: 500;
+    color: #62646a;
+  }
+}
+
+.clientInfo-box3 {
+  .client__description {
+    border-bottom: 1px solid #b5b6ba;
+    padding-bottom: 1.5rem;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    ul {
+      li {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        span {
+          &:first-child {
+            font-weight: 700;
+            color: #222325;
+          }
+        }
+
+        a {
+          font-size: 14px;
+          font-weight: 400;
+          color: #00698c;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .client-social {
+    border-bottom: 1px solid #b5b6ba;
+    padding-bottom: 0.5rem;
+
+    .social-title {
+      font-weight: 700;
+      color: #222325;
+      padding-top: 1.25rem;
+    }
+
+    ul {
+      padding-top: 1rem;
+      li {
+        padding: 0.5rem 0;
+        color: #00698c;
+        cursor: pointer;
+        font-size: 14px;
+
+        &:nth-child(2) {
+          color: #555;
+          cursor: default;
+        }
+
+        i {
+          padding-right: 0.75rem;
+        }
+      }
+    }
+  }
+}
+
+.box-cover {
+  border-radius: 4px;
+}
+
+.clientInfo-box1,
+.clientInfo-box2,
+.clientInfo-box3 {
+  transition: 0.2s all ease-in-out;
+  &:hover {
+    transform: scale(1.01);
+
+    .box-cover {
+      box-shadow: 5px 5px 26px 5px rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+// ============Left Section ENDS=====================
+
+// ============ Right Section STARTS=====================
+
+.client-jobs__container {
+  padding: 0.75rem 1.75rem;
+  border: 1px solid #dadbdd;
+  border-radius: 4px;
+  background: #fff;
+  color: #62646a;
+
+  .client-jobs__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    .client-header__left {
+      display: flex;
+      flex-direction: row;
+      width: 85%;
+      align-items: center;
+
+      .client-header__gif {
+        img {
+          width: 80%;
+        }
+      }
+
+      .client-header__content {
+        padding-left: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        p {
+          padding-right: 1rem;
+        }
+
+        a {
+          color: #19a463;
+          font-weight: 600;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          i {
+            padding-left: 5px;
+            font-size: 80%;
+          }
+        }
+      }
+    }
+
+    .client-header__right {
+      width: 5%;
+      text-align: right;
+      cursor: pointer;
+    }
+  }
+}
+
+.client-jobs__title {
+  h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+

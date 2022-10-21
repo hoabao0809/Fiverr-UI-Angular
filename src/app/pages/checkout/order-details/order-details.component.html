@@ -1,0 +1,111 @@
+<div class="container-fluid py-5">
+  <div class="max-width-container">
+    <div class="row">
+      <div class="col-12 col-sm-8">
+        <div class="job-detail">
+          <div class="job-detail__content">
+            <div class="job-detail__left">
+              <img
+                routerLink="/categories/detail-job/{{ idBookedJob }}"
+                src="{{ bookedJob.image }}"
+              />
+            </div>
+            <div class="job-detail__mid">
+              <a routerLink="/categories/detail-job/{{ idBookedJob }}">{{
+                bookedJob.name
+              }}</a>
+              <p class="star-rating">
+                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>5.0</span>
+              </p>
+              <p class="detail-included">View what's included</p>
+            </div>
+            <div class="job-detail__right">
+              <p>Qty</p>
+              <select class="form-select" [(ngModel)]="someProperty">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+              </select>
+              <span>US${{ typePackage * someProperty }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 price-summary__cover">
+        <div class="price-summary">
+          <div class="price-summary__content">
+            <div class="price-content__top">
+              <h5>Price summary</h5>
+              <div class="subtotal">
+                <span>Subtotal</span>
+                <span> US${{ typePackage * someProperty }}</span>
+              </div>
+              <div class="subtotal">
+                <span>Service Fee</span>
+                <span>US${{ serviceFee }}</span>
+              </div>
+            </div>
+
+            <div class="price-content__bottom">
+              <div class="subtotal">
+                <span class="total-price"><strong>Total</strong></span>
+                <span
+                  ><strong
+                    >US$ {{ typePackage * someProperty + serviceFee }}</strong
+                  ></span
+                >
+              </div>
+              <button class="total-btn" (click)="checkout()" type="button">
+                Continue to Checkout
+              </button>
+              <div class="no-charge"><p>You won't be charged yet</p></div>
+            </div>
+
+            <button
+              id="openLoginModal"
+              [hidden]="true"
+              data-toggle="modal"
+              data-target="#loginModal"
+            ></button>
+            <button
+              id="openSignupModal"
+              [hidden]="true"
+              data-toggle="modal"
+              data-target="#signupModal"
+            ></button>
+          </div>
+          <div class="payment-logos">
+            <div class="logos"></div>
+          </div>
+          <div class="payment-security-badges">
+            <p class="badges-top">SSL SECURED PAYMENT</p>
+            <p class="badges-bottom">Your information is protected by 256-bit SSL encryption</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-modal-login></app-modal-login>
+<app-modal-signup></app-modal-signup>

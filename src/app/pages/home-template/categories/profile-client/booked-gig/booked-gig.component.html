@@ -1,0 +1,40 @@
+<div class="card" style="width: 17rem">
+    <div >
+      <img
+      class="card-img"
+        [src]="bookedGig && bookedGig.image ? bookedGig.image : 'assets/img/fiverr.jpg'"
+        alt=""
+        (click)="navigateDetail()"
+      />
+    </div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-top__left">
+          <img src="../../../assets/img/avatar1.jpg" />
+        </div>
+        <div class="card-top__right">
+          <a>{{ bookedGig.name }}</a>
+          <p>Top Rated Seller</p>
+        </div>
+      </div>
+      <div class="card-info">
+        <a
+          (click)="navigateDetail()"
+          style="text-decoration: none; cursor: pointer"
+          class="card-text"
+        >
+          {{ bookedGig.name | slice:0:30 }} ...
+        </a>
+        <div class="card-rate">
+          <i class="fas fa-star"><span style="padding-right: 5px;">{{bookedGig.rating}}.0</span></i> <span>(1k+)</span>
+        </div>
+      </div>
+      <div class="card-bottom">
+        <i class="fas fa-heart"></i>
+        <p>
+          STARTING AT <span>US${{ bookedGig.price }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,232 @@
+<div class="container-fluid">
+  <div class="card-container py-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="client-cover">
+          <div class="clientInfo-box1">
+            <div class="box-cover">
+              <div class="clientInfo__top">
+                <div class="user-image" (click)="fileInput.click()">
+                  <img
+                    style="border-radius: 50%; cursor: pointer"
+                    class="img-fluid user-img"
+                    [src]="activeImageUrl"
+                    id="uploadImage"
+                  />
+                </div>
+
+                <input
+                  style="display: none"
+                  type="file"
+                  (change)="onFileChanged($event)"
+                  #fileInput
+                />
+
+                <ng-container
+                  class="client-name"
+                  *ngIf="hasName; then nameIn; else nameOut"
+                ></ng-container>
+
+                <ng-template #nameIn>
+                  <p class="client-name">{{ clientInfo.name }}</p>
+                  <p class="edit-icon"><i class="fas fa-edit"></i></p>
+                </ng-template>
+
+                <ng-template #nameOut>
+                  <p class="client-name">Cybersoft</p>
+                  <a type="submit" data-toggle="modal"
+                  data-target="#modalUpdateUser" class="edit-icon"><i class="fas fa-edit"></i></a>
+                </ng-template>
+
+                <div class="preview-profile">
+                  <button>Preview Fiverr Profile</button>
+                </div>
+              </div>
+
+              <div class="clientInfo__bottom">
+                <ul class="list-unstyled">
+                  <li>
+                    <span><i class="fas fa-map-marker-alt"></i>From</span>
+                    <span>Viet Nam</span>
+                  </li>
+                </ul>
+                <ul class="list-unstyled">
+                  <li>
+                    <span><i class="fas fa-user"></i>Member since</span>
+                    <span>Dec 2021</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="clientInfo-box2">
+            <div class="box-cover">
+              <div class="clientInfo__top">
+                <div class="logo-learn">
+                  <img
+                    style="border-radius: 50%; cursor: pointer"
+                    class="img-fluid user-img"
+                    src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_png/v1/attachments/generic_asset/asset/6bef0aaa4d62dcf41383658e5e3211ee-1571214998624/fiverrlearn_logo.svg"
+                  />
+                </div>
+
+                <div class="logo-text">
+                  <h5>Earn badges and stand out</h5>
+                  <p>Boost your sales, by boosting your expertise.</p>
+                </div>
+
+                <div class="preview-profile">
+                  <button>Enroll Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clientInfo-box3">
+            <div class="box-cover">
+              <div class="client__description">
+                <ul class="list-unstyled">
+                  <li>
+                    <span>Description</span>
+                    <a>Edit Description</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="client__description">
+                <ul class="list-unstyled">
+                  <li>
+                    <span>Languages</span>
+                    <a>Add New</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="client-social">
+                <span class="social-title">Linked Accounts</span>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-plus"></i><span>Facebook</span></li>
+                  <li>
+                    <i class="fab fa-google-plus-square"></i><span>Google</span>
+                  </li>
+                  <li><i class="fas fa-plus"></i><span>Dribbble</span></li>
+                  <li>
+                    <i class="fas fa-plus"></i><span>Stack Overflow</span>
+                  </li>
+                  <li><i class="fas fa-plus"></i><span>Github</span></li>
+                  <li><i class="fas fa-plus"></i><span>Vimeo</span></li>
+                  <li><i class="fas fa-plus"></i><span>Twitter</span></li>
+                </ul>
+              </div>
+
+              <div class="client__description">
+                <ul class="list-unstyled">
+                  <li>
+                    <span>Skills</span>
+                    <a>Add New</a>
+                  </li>
+                </ul>
+                <ul>
+                  <li
+                    style="
+                      justify-content: flex-start;
+                      align-items: center;
+                      font-size: 14px;
+                      padding: 0.5px 0;
+                      color: #555;
+                    "
+                    class="client-skill"
+                    *ngFor="let skill of clientInfo.skill"
+                  >
+                    <i style="padding-right: 0.75rem" class="fas fa-plus"></i>
+                    <span style="font-weight: 500; padding: 0.25rem">{{
+                      skill
+                    }}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="client__description">
+                <ul class="list-unstyled">
+                  <li>
+                    <span>Certification</span>
+                    <a>Add New</a>
+                  </li>
+                </ul>
+                <ul>
+                  <li
+                    style="
+                      justify-content: flex-start;
+                      align-items: center;
+                      font-size: 14px;
+                      padding: 0.5px 0;
+                      color: #555;
+                    "
+                    class="client-skill"
+                    *ngFor="let certificate of clientInfo.certification"
+                  >
+                    <i style="padding-right: 0.75rem" class="fas fa-plus"></i>
+                    <span style="font-weight: 500; padding: 0.25rem">{{
+                      certificate
+                    }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="client-cover">
+          <div class="client-jobs__container">
+            <div class="client-jobs__header">
+              <div class="client-header__left">
+                <div class="client-header__gif">
+                  <img
+                    src="https://npm-assets.fiverrcdn.com/assets/@fiverr-private/business_blocks/office-building.7ac5061.gif"
+                  />
+                </div>
+                <div class="client-header__content">
+                  <p>
+                    <strong>Buying services for work?</strong> Get the best
+                    experience for your business with 3 quick questions.
+                  </p>
+                  <a
+                    >What’s your industry <i class="fas fa-chevron-right"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="client-header__right">
+                <i class="fas fa-times"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="client-jobs__title">
+            <div class="title">
+              <h2>All Gigs you've booked :</h2>
+            </div>
+          </div>
+
+          <div class="client-jobs__list">
+            <div class="jobs-list__cover">
+              <div class="row justify-content-center justify-content-md-around justify-content-xl-around" style="margin: auto">
+                <div *ngFor="let gig of listBookedGigs">
+                  <app-booked-gig
+                    class="col-12 col-sm-6 col-md-4 col-lg-3"
+                    [gig]="gig"
+                  ></app-booked-gig>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- (change)="onFileChanged($event)" -->
+
+<app-modal-update-user [clientInfo]="clientInfo" ></app-modal-update-user>

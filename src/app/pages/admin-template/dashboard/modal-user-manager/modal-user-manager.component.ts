@@ -1,0 +1,191 @@
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { DataService } from 'src/app/_core/services/data.service';
+import { DatePipe } from '@angular/common';
+
+@Component({
+  selector: 'app-modal-user-manager',
+  templateUrl: './modal-user-manager.component.html',
+  styleUrls: ['./modal-user-manager.component.scss'],
+})
+export class ModalUserManagerComponent implements OnInit {
+  @Input() userEdit: any;
+
+  @ViewChild('formUserManger', { static: false }) formUserManger!: NgForm;
+
+  picker: any;
+
+  user: any;
+  skills: any = [];
+  certifications: any = [];
+  gender: boolean = false;
+  updatedUser: any;
+
+  constructor(
+    private data: DataService,
+    private router: Router,
+    private datePipe: DatePipe
+  ) {}
+
+  ngOnInit(): void {
+    // this.user = {
+    //   name: '',
+    //   email: '',
+    //   phone: '',
+    //   birthday: '',
+    //   gender: false,
+    //   role: '',
+    //   skill: '',
+    //   certification: '',
+    // };
+  }
+
+  // Show data ra modal
+  ngOnChanges() {
+    if (this.formUserManger) {
+      if (this.userEdit) {
+        // const {
+        //   name,
+        //   email,
+        //   phone,
+        //   birthday,
+        //   gender,
+        //   role,
+        //   skill,
+        //   certification,
+        // } = this.userEdit;
+        // let defaultUserEdit: any = {
+        //   name,
+        //   email,
+        //   phone,
+        //   birthday,
+        //   gender,
+        //   role,
+        //   skill,
+        //   certification,
+        // };
+        // console.log(this.userEdit);
+        // console.log(this.userEdit);
+
+        // const { avatar, password, __v, deleteAt, bookingJob, ...restUserEdit } =
+        //   this.userEdit;
+
+        // let convertDate: any = this.datePipe.transform(
+        //   this.userEdit.birthday,
+        //   'yyyy-MM-dd'
+        // );
+
+        this.formUserManger.setValue({...this.userEdit});
+      } else {
+        this.formUserManger.setValue({...this.user});
+      }
+    }
+  }
+
+  createUser(userInput: any) {
+    // ************Xử lý đầu vào Input trả về data đúng format API****************
+    let dateFormat: any = String(
+      this.datePipe.transform(userInput.birthday, 'yyyy-MM-dd')
+    );
+
+    //  Tạo thông tin Skills và Certifications
+    this.generateArray(userInput.skill, this.skills);
+    this.generateArray(userInput.certification, this.certifications);
+
+    // Handle input về gender cho đúng API
+    switch (userInput.gender) {
+      case 'true':
+        this.gender = true;
+        break;
+      case 'false':
+        this.gender = false;
+        break;
+    }
+
+    // Clone user chuẩn format
+    let tempUserInfo: any = {
+      ...userInput,
+      birthday: dateFormat,
+      skill: this.skills,
+      certification: this.certifications,
+      gender: this.gender,
+    };
+
+    // ********** Kiểm tra người dùng sử dụng modal Create / Edit
+    if (this.userEdit) {
+      // ForEach để remove các input người dùng không update
+      Object.keys(tempUserInfo).forEach((key) => {
+        if (!tempUserInfo[key]) delete tempUserInfo[key];
+      });
+
+      // Bóc tách các keys cho đúng format API
+      const { avatar, bookingJob, deleteAt, _id, __v, ...rest } = this.userEdit;
+      let convertFormatDate: any = String(
+        this.datePipe.transform(rest.birthday, 'yyyy-MM-dd')
+      );
+
+      // Xử lý format date Birthday
+      let updatedUser: any = Object.assign({}, rest, tempUserInfo, {
+        birthday: convertFormatDate,
+      });
+
+      this.data.put(`users/${this.userEdit._id}`, updatedUser).subscribe(
+        () => {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            text: 'Update successfully',
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(() => {
+            window.location.reload();
+          });
+        },
+        (err) => {
+          Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            text: 'Update unsuccessfully',
+
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      );
+    } else {
+      this.data.post('users', tempUserInfo).subscribe(
+        (res) => {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            text: 'Create new User successfully!!',
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(() => {
+            window.location.reload();
+          });
+        },
+        (err) => {
+          Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            text: 'Failed to Create new User!!',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      );
+    }
+  }
+
+  // Hàm tách Input (skills, certifications) từ người dùng và tạo Array
+  generateArray(key: any, array: any) {
+    let tempSkills: any = key.split(',');
+    // this.skills.push(tempSkills.trim())
+    tempSkills.forEach((item: any) => {
+      array.push(item.trim().charAt(0).toUpperCase() + item.trim().slice(1));
+    });
+  }
+}

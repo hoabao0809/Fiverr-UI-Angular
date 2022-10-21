@@ -1,0 +1,26 @@
+<div>
+  <router-outlet></router-outlet>
+</div>
+<div>
+  <app-footer></app-footer>
+</div>
+
+<app-modal-login></app-modal-login>
+<app-modal-signup></app-modal-signup>
+
+<button
+  id="openLoginModal"
+  [hidden]="true"
+  data-toggle="modal"
+  data-target="#loginModal"
+></button>
+<button
+  id="openSignupModal"
+  [hidden]="true"
+  data-toggle="modal"
+  data-target="#signupModal"
+></button>
+
+<div class="la-ball-scale" [ngClass]="{ active: status }">
+  <div></div>
+</div>

@@ -1,0 +1,186 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="modalUpdateUser"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modelTitleId"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalQuanLyThanhVienLabel">
+          <span>SỬA NGƯỜI DÙNG</span>
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          #closebutton
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <form
+                #formUserManger="ngForm"
+                (ngSubmit)="updateUser(formUserManger.value)"
+              >
+                <!-- <div class="form-group">
+                  <label for="">Tài khoản</label>
+                  <input
+                    [disabled]="userEdit"
+                    type="text"
+                    class="form-control"
+                    name="taiKhoan"
+                    ngModel
+                    #taiKhoan="ngModel"
+                  />
+                </div> -->
+                <div class="form-group">
+                  <label for="">Họ tên</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    ngModel
+                    #HoTen="ngModel"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">Email</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="email"
+                    ngModel
+                    #email="ngModel"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">Mật khẩu</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="password"
+                    ngModel
+                    #Password="ngModel"
+                  />
+                </div>
+
+                <div class="row-container">
+                  <div class="form-group" style="width: 40%">
+                    <label for="">Số điện thoại</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="phone"
+                      ngModel
+                      #soDT="ngModel"
+                    />
+                  </div>
+
+                  <div class="user-birthday">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Birthday</mat-label>
+                      <input
+                        name="birthday"
+                        ngModel
+                        required
+                        matInput
+                        [matDatepicker]="picker"
+                      />
+                      <mat-datepicker-toggle
+                        matSuffix
+                        [for]="picker"
+                      ></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="row-container">
+                  <div class="user-gender">
+                    <div class="form-group">
+                      <label for="">Giới tính</label>
+                      <select
+                        #gender="ngModel"
+                        name="gender"
+                        class="form-control"
+                        ngModel
+                      >
+                        <option value="true">Nam</option>
+                        <option value="false">Nữ</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="user-role">
+                    <div class="form-group">
+                      <label for="">Loại người dùng</label>
+                      <select
+                        #role="ngModel"
+                        name="role"
+                        class="form-control"
+                        ngModel
+                      >
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="CLIENT">CLIENT</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="">Kỹ năng</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="skill"
+                    ngModel
+                    placeholder="i.e: Lol, Web, Design"
+                    #Skill="ngModel"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">Bằng cấp</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="certification"
+                    ngModel
+                    placeholder="i.e: DIB, PYNOW"
+                    #Certification="ngModel"
+                  />
+                </div>
+                <div class="d-flex justify-content-end">
+                  <button
+                    style="margin-right: 1rem"
+                    type="button"
+                    mat-raised-button
+                    color="accent"
+                    (click)="updateUser(formUserManger.value)"
+                  >
+                    <span>Cập Nhật</span>
+                  </button>
+                </div>
+              </form>
+              <div class="modal-footer">
+                <button type="button" mat-raised-button data-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- (click)="handleOnSubmit()" -->
