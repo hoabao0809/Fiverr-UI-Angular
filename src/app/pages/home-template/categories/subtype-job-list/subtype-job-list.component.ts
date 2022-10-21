@@ -65,6 +65,7 @@ export class SubtypeJobListComponent implements OnInit {
     this.subTypeJobList = this.data
       .get(`sub-type-jobs/${this.idSubjob}`)
       .subscribe((res) => {
+        console.log(res.name)
         this.subJob = res;
       });
   }

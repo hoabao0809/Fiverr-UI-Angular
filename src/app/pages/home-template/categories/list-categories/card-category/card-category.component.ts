@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class CardCategoryComponent implements OnInit {
   @Input() subJob: any;
-  subTypeJob: any;
+  jobs: any;
 
   // Destroy API
   getDetailSubTypeJobList = new Subscription();
@@ -26,8 +26,7 @@ export class CardCategoryComponent implements OnInit {
     this.getDetailSubTypeJobList = this.data
       .get(`/jobs/by-sub-type?subType=${this.subJob._id}&skip=0&llimit=10`)
       .subscribe((res) => {
-        this.subTypeJob = res;
-        // console.log(this.subJob);
+        this.jobs = res;
       });
   }
 
