@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/_core/services/data.service';
 import { Subscription } from 'rxjs';
 
-
 @Component({
   selector: 'app-list-categories',
   templateUrl: './list-categories.component.html',
@@ -18,7 +17,7 @@ export class ListCategoriesComponent implements OnInit {
   // subTypeJob: any
 
   // Destroy API
-  getSubTypeJobsList = new Subscription
+  getSubTypeJobsList = new Subscription();
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,7 +29,7 @@ export class ListCategoriesComponent implements OnInit {
     setTimeout(() => {
       localStorage.removeItem('wait');
     }, 3000);
-    
+
     this.getPramsFromUrl();
     this.getSubTypeJobs();
   }
@@ -41,10 +40,13 @@ export class ListCategoriesComponent implements OnInit {
 
   // API 17
   getSubTypeJobs() {
-   this.getSubTypeJobsList = this.data.get(`type-jobs/${this.idTypejob}`).subscribe((res) => {
-      this.categoryName = res.name;
-      this.subTypeJobs = res.subTypeJobs;
-    });
+    this.getSubTypeJobsList = this.data
+      .get(`type-jobs/${this.idTypejob}`)
+      .subscribe((res) => {
+        this.categoryName = res.name;
+        this.subTypeJobs = res.subTypeJobs;
+        console.log(this.subTypeJobs);
+      });
   }
 
   ngOnDestroy() {

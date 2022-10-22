@@ -47,7 +47,7 @@ export class SubtypeJobListComponent implements OnInit {
     setTimeout(() => {
       localStorage.removeItem('wait');
     }, 3000);
-    
+
     this.getParamId();
     this.getTypeJob();
     this.getJobsBySubType();
@@ -65,7 +65,6 @@ export class SubtypeJobListComponent implements OnInit {
     this.subTypeJobList = this.data
       .get(`sub-type-jobs/${this.idSubjob}`)
       .subscribe((res) => {
-        console.log(res.name)
         this.subJob = res;
       });
   }
@@ -79,8 +78,6 @@ export class SubtypeJobListComponent implements OnInit {
           this.servicesCount = this.productArray.length;
           this.arrays = res;
           this.backup = [...res];
-
-          console.log(this.backup);
         },
         (err) => {
           throw err;

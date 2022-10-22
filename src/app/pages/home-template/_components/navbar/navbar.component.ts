@@ -30,7 +30,6 @@ export class NavbarComponent implements OnInit {
   getSubTypeJob() {
     this.data.get('type-jobs').subscribe((result) => {
       this.listCategories = result;
-      // this.listCategories = result.slice(0, 9);
     });
   }
 

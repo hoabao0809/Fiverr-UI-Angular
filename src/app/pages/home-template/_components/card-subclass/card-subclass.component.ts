@@ -18,3 +18,4 @@ export class CardSubclassComponent implements OnInit {
     this.router.navigate([`/categories/subjobs-list/${subJobId}`]);
   }
 }
+

@@ -43,9 +43,9 @@
               <img
                 class="img-overlay"
                 [src]="
-                  detailJob.image || detailJob.avatar
-                    ? detailJob.image || detailJob.avatar
-                    : detailJob.avatar || 'assets/img/fiverr.jpg'
+                  detailJob?.image || detailJob?.avatar
+                    ? detailJob?.image || detailJob?.avatar
+                    : detailJob?.avatar || 'assets/img/fiverr.jpg'
                 "
               />
             </div>
@@ -274,7 +274,7 @@
                       <p>My skill---</p>
                     </div>
                     <div class="seller-skills">
-                      <ng-container *ngFor="let skill of createdUser.skill">
+                      <ng-container *ngFor="let skill of createdUser?.skill">
                         <p style="margin-bottom: 0.25rem">→ {{ skill }}</p>
                       </ng-container>
                     </div>
@@ -474,17 +474,14 @@
                           </p>
                         </div>
                         <div class="user-comment__publish">
-
                           <p>Published 2 weeks ago</p>
                         </div>
                         <div class="user-comment__publish">
+                          <span><i class="fas fa-thumbs-up"></i>Helpful</span>
                           <span
-                          ><i class="fas fa-thumbs-up"></i>Helpful</span
-                        >
-                        <span
-                          ><i class="fas fa-thumbs-down"></i>Not Helpful</span
-                        >
-                          </div>
+                            ><i class="fas fa-thumbs-down"></i>Not Helpful</span
+                          >
+                        </div>
                       </div>
                     </div>
                   </div>

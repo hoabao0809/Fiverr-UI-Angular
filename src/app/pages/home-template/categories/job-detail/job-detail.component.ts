@@ -63,7 +63,7 @@ export class JobDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getParamFromUrl();
     this.getDetailJob();
-    this.getComments();
+    // this.getComments();
   }
 
   getParamFromUrl() {
@@ -94,7 +94,6 @@ export class JobDetailComponent implements OnInit {
       .get(`comments/by-job/${this.idDetailJob}`)
       .subscribe((res) => {
         this.comments = res;
-        console.log(res);
       });
   }
 
