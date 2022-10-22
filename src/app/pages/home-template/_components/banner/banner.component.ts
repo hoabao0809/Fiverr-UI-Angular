@@ -53,15 +53,13 @@ export class BannerComponent implements OnInit {
     pauseOnFocus: false,
   };
 
-  constructor(private data:DataService, private router:Router) {}
+  constructor(private data: DataService, private router: Router) {}
 
   ngOnInit(): void {}
 
   onSubmit($event: any) {
-    if ($event.keyCode === 13 || $event.type === "click")  {
-      // this.searchJob(this.searchValue);
-
-      this.router.navigate([`/categories/search/${this.searchValue}`])
+    if ($event.keyCode === 13 || $event.type === 'click') {
+      this.router.navigate([`/categories/search/${this.searchValue}`]);
     }
   }
 }

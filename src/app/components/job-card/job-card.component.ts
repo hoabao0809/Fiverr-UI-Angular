@@ -24,14 +24,14 @@ export class JobCardComponent implements OnInit {
 
   getUserCreated() {
     this.getUserCreatedList = this.data
-      .get(`users/${this.job._id.userCreated}`)
+      .get(`users/${this.job.userCreated}`)
       .subscribe((res) => {
         this.userCreated = res;
       });
   }
 
   navigateDetail() {
-    this.router.navigate([`/categories/detail-job/${this.job._id._id}`]);
+    this.router.navigate([`/categories/detail-job/${this.job._id}`]);
   }
 
   ngOnDestroy() {

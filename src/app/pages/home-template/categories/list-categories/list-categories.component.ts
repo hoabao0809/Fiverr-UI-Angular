@@ -45,7 +45,6 @@ export class ListCategoriesComponent implements OnInit {
       .subscribe((res) => {
         this.categoryName = res.name;
         this.subTypeJobs = res.subTypeJobs;
-        console.log(this.subTypeJobs);
       });
   }
 

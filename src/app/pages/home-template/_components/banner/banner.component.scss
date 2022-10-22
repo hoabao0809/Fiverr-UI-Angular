@@ -58,6 +58,10 @@
   }
 }
 
+.has-search {
+  position: relative;
+}
+
 .form-group {
   margin: 0 !important;
   display: flex;
@@ -72,6 +76,7 @@
     text-align: center;
     pointer-events: none;
     color: #aaa;
+    right: auto;
   }
 
   .form-control {

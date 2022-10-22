@@ -39,6 +39,12 @@
     font-size: 3em;
     margin: auto;
 
+    .user-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     &::before {
       background: rgba(0, 0, 0, 0.65);
       content: "\f030";
@@ -341,4 +347,3 @@
     line-height: 28px;
   }
 }
-

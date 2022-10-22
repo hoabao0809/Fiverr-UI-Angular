@@ -32,7 +32,6 @@ export class CardCategoryComponent implements OnInit {
 
   getJobs() {
     this.router.navigate([`/categories/subjobs-list/${this.subJob._id}`]);
-    // console.log(this.subJob._id);
   }
 
   ngOnDestroy() {

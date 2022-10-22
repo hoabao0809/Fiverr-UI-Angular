@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class SearchPageComponent implements OnInit {
   searchKeyword: any;
-  subJob: any;
+  // subJob: any;
 
   conditionObject: any = {};
 
@@ -35,7 +35,7 @@ export class SearchPageComponent implements OnInit {
   ];
 
   // Destroy API
-  getTypeJobList = new Subscription();
+  // getTypeJobList = new Subscription();
   searchJobList = new Subscription();
 
   constructor(
@@ -44,12 +44,12 @@ export class SearchPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    localStorage.setItem('wait', JSON.stringify(true));
-    setTimeout(() => {
-      localStorage.removeItem('wait');
-    }, 3000);
+    // localStorage.setItem('wait', JSON.stringify(true));
+    // setTimeout(() => {
+    //   localStorage.removeItem('wait');
+    // }, 3000);
     this.getParamId();
-    this.getTypeJob();
+    // this.getTypeJob();
     this.searchJob();
   }
 
@@ -61,21 +61,19 @@ export class SearchPageComponent implements OnInit {
   arrays: any = [];
   backup: any = [];
 
-  getTypeJob() {
-    this.getTypeJobList = this.data
-      .get(`sub-type-jobs/${this.searchKeyword}`)
-      .subscribe((res) => {
-        this.subJob = res;
-      });
-  }
+  // getTypeJob() {
+  //   this.getTypeJobList = this.data
+  //     .get(`sub-type-jobs/${this.searchKeyword}`)
+  //     .subscribe((res) => {
+  //       this.subJob = res;
+  //     });
+  // }
 
   searchJob() {
     this.searchJobList = this.data
       .get(`jobs/by-name?name=${this.searchKeyword}`)
       .subscribe(
         (res) => {
-          console.log(res);
-
           this.productArray = res;
           this.servicesCount = this.productArray.length;
           this.arrays = res;
@@ -97,7 +95,6 @@ export class SearchPageComponent implements OnInit {
     let filterService = event.source.name;
     let filterCondition = event.checked;
     this.conditionObject = { [filterService]: filterCondition };
-    // console.log(this.conditionObject);
 
     if (event.checked) {
       this.tempArray = this.arrays.filter(
@@ -147,7 +144,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.getTypeJobList.unsubscribe();
+    // this.getTypeJobList.unsubscribe();
     this.searchJobList.unsubscribe();
   }
 }

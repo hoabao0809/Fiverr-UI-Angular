@@ -78,7 +78,6 @@ export class ProfileClientComponent implements OnInit {
         this.clientInfo = res;
         this.checkName(this.clientInfo.name);
         this.listBookedGigs = res.bookingJob;
-        console.log(this.listBookedGigs);
       });
   }
 

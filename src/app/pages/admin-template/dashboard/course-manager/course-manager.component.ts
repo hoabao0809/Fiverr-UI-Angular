@@ -45,7 +45,6 @@ export class CourseManagerComponent implements OnInit {
   }
 
   xoaPhim(item: any) {
-    console.log(item._id);
     const uri = `jobs/${item._id} `;
     this.data.delete(uri).subscribe(
       (data: any) => {

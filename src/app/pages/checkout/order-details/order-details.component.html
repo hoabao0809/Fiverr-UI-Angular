@@ -7,12 +7,12 @@
             <div class="job-detail__left">
               <img
                 routerLink="/categories/detail-job/{{ idBookedJob }}"
-                src="{{ bookedJob.image }}"
+                src="{{ bookedJob?.image }}"
               />
             </div>
             <div class="job-detail__mid">
               <a routerLink="/categories/detail-job/{{ idBookedJob }}">{{
-                bookedJob.name
+                bookedJob?.name
               }}</a>
               <p class="star-rating">
                 <i class="fas fa-star"></i> <i class="fas fa-star"></i>

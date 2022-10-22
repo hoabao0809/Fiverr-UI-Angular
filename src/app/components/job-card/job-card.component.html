@@ -2,7 +2,7 @@
   <div >
     <img
     class="card-img"
-      [src]="job && job._id.image ? job._id.image : 'assets/img/fiverr.jpg'"
+      [src]="job && job.image ? job.image : 'assets/img/fiverr.jpg'"
       alt=""
       (click)="navigateDetail()"
     />
@@ -23,16 +23,16 @@
         style="text-decoration: none; cursor: pointer"
         class="card-text"
       >
-        {{ job._id.name | slice:0:30 }} ...
+        {{ job.name | slice:0:30 }} ...
       </a>
       <div class="card-rate">
-        <i class="fas fa-star"><span style="padding-right: 5px;">{{job._id.rating}}.0</span></i> <span>(1k+)</span>
+        <i class="fas fa-star"><span style="padding-right: 5px;">{{job.rating}}.0</span></i> <span>(1k+)</span>
       </div>
     </div>
     <div class="card-bottom">
       <i class="fas fa-heart"></i>
       <p>
-        STARTING AT <span>US${{ job._id.price }}</span>
+        STARTING AT <span>US${{ job.price }}</span>
       </p>
     </div>
   </div>

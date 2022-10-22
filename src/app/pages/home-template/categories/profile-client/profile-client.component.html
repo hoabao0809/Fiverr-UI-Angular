@@ -34,8 +34,13 @@
 
                 <ng-template #nameOut>
                   <p class="client-name">Cybersoft</p>
-                  <a type="submit" data-toggle="modal"
-                  data-target="#modalUpdateUser" class="edit-icon"><i class="fas fa-edit"></i></a>
+                  <a
+                    type="submit"
+                    data-toggle="modal"
+                    data-target="#modalUpdateUser"
+                    class="edit-icon"
+                    ><i class="fas fa-edit"></i
+                  ></a>
                 </ng-template>
 
                 <div class="preview-profile">
@@ -137,7 +142,7 @@
                       color: #555;
                     "
                     class="client-skill"
-                    *ngFor="let skill of clientInfo.skill"
+                    *ngFor="let skill of clientInfo?.skill"
                   >
                     <i style="padding-right: 0.75rem" class="fas fa-plus"></i>
                     <span style="font-weight: 500; padding: 0.25rem">{{
@@ -164,7 +169,7 @@
                       color: #555;
                     "
                     class="client-skill"
-                    *ngFor="let certificate of clientInfo.certification"
+                    *ngFor="let certificate of clientInfo?.certification"
                   >
                     <i style="padding-right: 0.75rem" class="fas fa-plus"></i>
                     <span style="font-weight: 500; padding: 0.25rem">{{
@@ -211,7 +216,10 @@
 
           <div class="client-jobs__list">
             <div class="jobs-list__cover">
-              <div class="row justify-content-center justify-content-md-around justify-content-xl-around" style="margin: auto">
+              <div
+                class="row justify-content-center justify-content-md-around justify-content-xl-around"
+                style="margin: auto"
+              >
                 <div *ngFor="let gig of listBookedGigs">
                   <app-booked-gig
                     class="col-12 col-sm-6 col-md-4 col-lg-3"
@@ -229,4 +237,4 @@
 
 <!-- (change)="onFileChanged($event)" -->
 
-<app-modal-update-user [clientInfo]="clientInfo" ></app-modal-update-user>
+<app-modal-update-user [clientInfo]="clientInfo"></app-modal-update-user>

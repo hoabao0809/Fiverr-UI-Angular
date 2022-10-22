@@ -6,7 +6,11 @@
   <div class="img-category">
     <img
       class="card-img"
-      [src]="jobs && jobs[0]._id.image ? jobs[0]._id.image : 'assets/img/fiverr.jpg'"
+      [src]="
+        jobs && jobs[0]?.image
+          ? jobs[0]?.image
+          : 'assets/img/fiverr.jpg'
+      "
     />
   </div>
   <div class="text-white d-flex flex-column">
