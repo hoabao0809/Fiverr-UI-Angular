@@ -4,7 +4,6 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-
 @Component({
   selector: 'app-user-manager',
   templateUrl: './user-manager.component.html',
@@ -17,7 +16,7 @@ export class UserManagerComponent implements OnInit {
   listUsers: any;
 
   // Destroy API
-  getListList = new Subscription
+  getListList = new Subscription();
 
   constructor(private data: DataService, private router: Router) {}
 
@@ -56,7 +55,6 @@ export class UserManagerComponent implements OnInit {
   handleSearch() {
     this.data.get('users').subscribe((res) => {
       this.listUsers = res;
-      console.log(this.listUsers);
 
       if (this.keyword) {
         this.listUsers = this.listUsers.filter((item: any) => {

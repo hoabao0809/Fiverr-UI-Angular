@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  urlApi: 'https://fiverr-api-project.herokuapp.com/api',
+  urlApi: 'http://localhost:3000/api',
+  // urlApi: 'https://fiverr-api-project.herokuapp.com/api',
+
 };
 
 /*

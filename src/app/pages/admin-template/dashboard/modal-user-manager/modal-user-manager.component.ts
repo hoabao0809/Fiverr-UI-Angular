@@ -43,52 +43,53 @@ export class ModalUserManagerComponent implements OnInit {
   }
 
   // Show data ra modal
-  ngOnChanges() {
-    if (this.formUserManger) {
-      if (this.userEdit) {
-        // const {
-        //   name,
-        //   email,
-        //   phone,
-        //   birthday,
-        //   gender,
-        //   role,
-        //   skill,
-        //   certification,
-        // } = this.userEdit;
-        // let defaultUserEdit: any = {
-        //   name,
-        //   email,
-        //   phone,
-        //   birthday,
-        //   gender,
-        //   role,
-        //   skill,
-        //   certification,
-        // };
-        // console.log(this.userEdit);
-        // console.log(this.userEdit);
+  // ngOnChanges() {
+  //   if (this.formUserManger) {
+  //     if (this.userEdit) {
+  //       // const {
+  //       //   name,
+  //       //   email,
+  //       //   phone,
+  //       //   birthday,
+  //       //   gender,
+  //       //   role,
+  //       //   skill,
+  //       //   certification,
+  //       // } = this.userEdit;
+  //       // let defaultUserEdit: any = {
+  //       //   name,
+  //       //   email,
+  //       //   phone,
+  //       //   birthday,
+  //       //   gender,
+  //       //   role,
+  //       //   skill,
+  //       //   certification,
+  //       // };
+  //       // console.log(this.userEdit);
+  //       // console.log(this.userEdit);
 
-        // const { avatar, password, __v, deleteAt, bookingJob, ...restUserEdit } =
-        //   this.userEdit;
+  //       // const { avatar, password, __v, deleteAt, bookingJob, ...restUserEdit } =
+  //       //   this.userEdit;
 
-        // let convertDate: any = this.datePipe.transform(
-        //   this.userEdit.birthday,
-        //   'yyyy-MM-dd'
-        // );
+  //       // let convertDate: any = this.datePipe.transform(
+  //       //   this.userEdit.birthday,
+  //       //   'yyyy-MM-dd'
+  //       // );
 
-        this.formUserManger.setValue({...this.userEdit});
-      } else {
-        this.formUserManger.setValue({...this.user});
-      }
-    }
-  }
+  //       this.formUserManger.setValue({ ...this.userEdit });
+  //     } else {
+  //       console.log(this.user);
+  //       this.formUserManger.setValue({ ...this.user });
+  //     }
+  //   }
+  // }
 
   createUser(userInput: any) {
     // ************Xử lý đầu vào Input trả về data đúng format API****************
-    let dateFormat: any = String(
-      this.datePipe.transform(userInput.birthday, 'yyyy-MM-dd')
-    );
+    // let dateFormat: any = String(
+    //   this.datePipe.transform(userInput.birthday, 'yyyy-MM-dd')
+    // );
 
     //  Tạo thông tin Skills và Certifications
     this.generateArray(userInput.skill, this.skills);
@@ -107,7 +108,6 @@ export class ModalUserManagerComponent implements OnInit {
     // Clone user chuẩn format
     let tempUserInfo: any = {
       ...userInput,
-      birthday: dateFormat,
       skill: this.skills,
       certification: this.certifications,
       gender: this.gender,
@@ -122,14 +122,19 @@ export class ModalUserManagerComponent implements OnInit {
 
       // Bóc tách các keys cho đúng format API
       const { avatar, bookingJob, deleteAt, _id, __v, ...rest } = this.userEdit;
-      let convertFormatDate: any = String(
-        this.datePipe.transform(rest.birthday, 'yyyy-MM-dd')
-      );
+      // let convertFormatDate: any = String(
+      //   this.datePipe.transform(rest.birthday, 'yyyy-MM-dd')
+      // );
 
       // Xử lý format date Birthday
-      let updatedUser: any = Object.assign({}, rest, tempUserInfo, {
-        birthday: convertFormatDate,
-      });
+      let updatedUser: any = Object.assign(
+        {},
+        rest,
+        tempUserInfo
+        //   , {
+        //   birthday: convertFormatDate,
+        // }
+      );
 
       this.data.put(`users/${this.userEdit._id}`, updatedUser).subscribe(
         () => {
@@ -155,12 +160,12 @@ export class ModalUserManagerComponent implements OnInit {
         }
       );
     } else {
-      this.data.post('users', tempUserInfo).subscribe(
+      this.data.post('admin/users', tempUserInfo).subscribe(
         (res) => {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            text: 'Create new User successfully!!',
+            text: res.message,
             showConfirmButton: false,
             timer: 1500,
           }).then(() => {
@@ -171,7 +176,7 @@ export class ModalUserManagerComponent implements OnInit {
           Swal.fire({
             position: 'center',
             icon: 'warning',
-            text: 'Failed to Create new User!!',
+            text: err.error.message,
             showConfirmButton: false,
             timer: 1500,
           });

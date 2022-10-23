@@ -34,7 +34,7 @@
           <tr>
             <th>STT</th>
             <th>Họ Tên</th>
-            <th>Ngày sinh</th>
+            <!-- <th>Ngày sinh</th> -->
             <th>Email</th>
             <th>Số Điện Thoại</th>
             <th>Loại người dùng</th>
@@ -46,7 +46,7 @@
             <tr *ngFor="let user of listUsers; let index = index">
               <td>{{ index + 1 }}</td>
               <td>{{ user.name }}</td>
-              <td>{{ user.birthday | date: 'dd/MM/yyyy' }}</td>
+              <!-- <td>{{ user.birthday | date: 'dd/MM/yyyy' }}</td> -->
               <td>{{ user.email }}</td>
               <td>{{ user.phone }}</td>
               <td>{{ user.role }}</td>
