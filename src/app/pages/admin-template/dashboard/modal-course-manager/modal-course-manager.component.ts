@@ -5,117 +5,108 @@ import { DataService } from 'src/app/_core/services/data.service';
 @Component({
   selector: 'app-modal-course-manager',
   templateUrl: './modal-course-manager.component.html',
-  styleUrls: ['./modal-course-manager.component.scss']
+  styleUrls: ['./modal-course-manager.component.scss'],
 })
 export class ModalCourseManagerComponent implements OnInit {
-  @Input() flagModal: any;
-  @Input() itemSuaPhim: any;
-  @ViewChild('formQuanLiPhim', { static: false }) formQuanLiPhim!: NgForm;
-  name: any;
+  @Input() itemJob: any;
+  @ViewChild('formJobManager', { static: false }) formJobManager!: NgForm;
+  action: any;
 
   EmptyModal = {
-    maKhoaHoc: '',
-    tenKhoaHoc: '',
-    luotXem: '',
-    ngayTao: '',
-    hinhAnh: '',
-    moTa: '',
-    maDanhMucKhoaHoc: '',
+    name: '',
+    image: '',
+    rating: '',
+    price: '',
+    proServices: '',
+    localSellers: '',
+    onlineSellers: '',
+    deliveryTime: '',
+    type: '',
+    subType: '',
   };
 
   constructor(private data: DataService) {}
 
-
   ngOnChanges() {
     this.CheckModal();
-    if (this.formQuanLiPhim) {
-      if (this.flagModal === false) {
-        this.formQuanLiPhim.setValue({ ...this.itemSuaPhim });
+    if (this.formJobManager) {
+      if (this.itemJob.isEdited === false) {
+        this.formJobManager.setValue({ ...this.itemJob.item });
       } else {
-        this.formQuanLiPhim.setValue({ ...this.EmptyModal });
+        this.formJobManager.setValue({ ...this.EmptyModal });
       }
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   CheckModal() {
-    if (this.flagModal === true) {
-      this.name = 'Thêm Phim';
+    if (this.itemJob.isEdited === true) {
+      this.action = 'Thêm Phim';
     } else {
-      this.name = 'Sửa Phim';
+      this.action = 'Sửa Phim';
     }
   }
 
-  _SubmitForm() {
-    this.EmptyModal.maKhoaHoc = this.formQuanLiPhim.value.taiKhoan;
-    this.EmptyModal.tenKhoaHoc = this.formQuanLiPhim.value.hoTen;
-    this.EmptyModal.luotXem = this.formQuanLiPhim.value.email;
-    this.EmptyModal.ngayTao = this.formQuanLiPhim.value.soDT;
-    this.EmptyModal.hinhAnh = this.formQuanLiPhim.value.matKhau;
-    this.EmptyModal.moTa = this.formQuanLiPhim.value.maLoaiNguoiDung;
-    this.EmptyModal.maDanhMucKhoaHoc =
-      this.formQuanLiPhim.value.maLoaiNguoiDung;
+  createJob(jobInput: any) {
+    // this.EmptyModal.name = this.formJobManager.value.name;
+    // this.EmptyModal.image = this.formJobManager.value.image;
+    // this.EmptyModal.rating = this.formJobManager.value.rating;
+    // this.EmptyModal.price = this.formJobManager.value.price;
+    // this.EmptyModal.proServices = this.formJobManager.value.proServices;
+    // this.EmptyModal.localSellers = this.formJobManager.value.localSellers;
+    // this.EmptyModal.onlineSellers = this.formJobManager.value.onlineSellers;
+    // this.EmptyModal.deliveryTime = this.formJobManager.value.deliveryTime;
+    // this.EmptyModal.type = this.formJobManager.value.type;
+    // this.EmptyModal.subType = this.formJobManager.value.subType;
 
-    if (this.flagModal) {
-      this.data
-        .post('QuanLyKhoaHoc/CapNhatKhoaHoc', {
-          ...this.EmptyModal,
-          biDanh: 'abc',
-          danhGia: '5',
-          taiKhoanNguoiTao: 'TRUONG TAN KHAI',
-          maNhom: 'GP08',
-        })
-        .subscribe(
-          (data: any) => {
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              showConfirmButton: false,
-              timer: 1500,
-            })
-            .then(() => {
-              window.location.reload();
-            });
-          },
-          (err) => {
-            alert('Error');
-          }
-        );
+    if (this.itemJob.isEdited) {
+      this.data.post('admin/jobs', jobInput).subscribe(
+        (data: any) => {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(() => {
+            window.location.reload();
+          });
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
     } else {
-      console.log('themphim');
+      console.log('edit job');
 
-      this.data
-        .post('QuanLyKhoaHoc/ThemKhoaHoc', {
-          ...this.EmptyModal,
-          biDanh: 'abc',
-          danhGia: '5',
-          taiKhoanNguoiTao: 'TRUONG TAN KHAI',
-          maNhom: 'GP08',
-        })
-        .subscribe(
-          (data: any) => {
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              showConfirmButton: false,
-              timer: 1500,
-            })
-            .then(() => {
-              window.location.reload();
-            });
-          },
-          (err) => {
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              showConfirmButton: false,
-              timer: 1500,
-            })
-          }
-        );
+      // this.data
+      //   .post('QuanLyKhoaHoc/ThemKhoaHoc', {
+      //     ...this.EmptyModal,
+      //     biDanh: 'abc',
+      //     danhGia: '5',
+      //     taiKhoanNguoiTao: 'TRUONG TAN KHAI',
+      //     maNhom: 'GP08',
+      //   })
+      //   .subscribe(
+      //     (data: any) => {
+      //       Swal.fire({
+      //         position: 'center',
+      //         icon: 'success',
+      //         showConfirmButton: false,
+      //         timer: 1500,
+      //       }).then(() => {
+      //         window.location.reload();
+      //       });
+      //     },
+      //     (err) => {
+      //       Swal.fire({
+      //         position: 'center',
+      //         icon: 'success',
+      //         showConfirmButton: false,
+      //         timer: 1500,
+      //       });
+      //     }
+      //   );
     }
   }
-
 }

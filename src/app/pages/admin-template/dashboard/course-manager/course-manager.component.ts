@@ -11,11 +11,11 @@ import { Subscription } from 'rxjs';
 })
 export class CourseManagerComponent implements OnInit {
   @Output() eventEditMovie = new EventEmitter();
-  @Output() eventSuaPhim = new EventEmitter();
+  // @Output() eventSuaPhim = new EventEmitter();
   @Input() indexXoa: any;
   keyword: any;
   mangDanhSachPhim: any = [];
-  flagEditAdd: any;
+  isEdited: any;
 
   // Destroy API
   getListMovieList = new Subscription();
@@ -29,19 +29,18 @@ export class CourseManagerComponent implements OnInit {
   getListMovie() {
     this.getListMovieList = this.data.get('jobs').subscribe((res) => {
       this.mangDanhSachPhim = res;
-      console.log(this.mangDanhSachPhim);
     });
   }
 
   suaPhim(item: any) {
-    this.flagEditAdd = false;
-    this.eventEditMovie.emit(this.flagEditAdd);
-    this.eventSuaPhim.emit(item);
+    this.isEdited = false;
+    this.eventEditMovie.emit({ isEdited: this.isEdited, item });
+    // this.eventSuaPhim.emit(item);
   }
 
   themPhim() {
-    this.flagEditAdd = true;
-    this.eventEditMovie.emit(this.flagEditAdd);
+    this.isEdited = true;
+    this.eventEditMovie.emit({ isEdited: this.isEdited, item: {} });
   }
 
   xoaPhim(item: any) {

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Observer, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 let urlApi = '';
 
@@ -73,6 +74,34 @@ export class DataService {
       case 400:
         break;
 
+      case 401:
+        if (error.error.message === 'jwt expired') {
+          // Loop through keys localStorage and filter ones'token matching expired token from backend
+          const keys: any = Object.keys(localStorage);
+          const keyExpired: any = keys.filter((key: any) => {
+            const keyInfo: any = localStorage.getItem(key);
+
+            return JSON.parse(keyInfo).token === error.error.data;
+          });
+          keyExpired.forEach((key: any) => {
+            // remove expired token localstorage and inform user
+            localStorage.removeItem(key);
+
+            Swal.fire({
+              position: 'center',
+              icon: 'warning',
+              text: 'Session expired, please login again',
+              showConfirmButton: true,
+            }).then((confirmed) => {
+              if (confirmed) {
+                location.reload();
+              }
+            });
+          });
+        }
+
+        // alert('Error');
+        break;
       case 404:
         break;
 

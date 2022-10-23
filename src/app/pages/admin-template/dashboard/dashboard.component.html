@@ -65,7 +65,7 @@
           aria-labelledby="nav-phim-tab"
           *ngIf="sideMenuContext === 'section-2'"
         >
-          <app-course-manager></app-course-manager>
+          <app-course-manager (eventEditMovie)="openModalJob($event)"></app-course-manager>
         </ng-container>
       </div>
     </div>
@@ -75,6 +75,5 @@
 <app-modal-user-manager [userEdit]="userEdit"></app-modal-user-manager>
 
 <app-modal-course-manager
-  [flagModal]="flag"
-  [itemSuaPhim]="itemSuaPhim"
+  [itemJob]="itemJob"
 ></app-modal-course-manager>

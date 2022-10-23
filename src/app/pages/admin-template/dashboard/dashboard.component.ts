@@ -7,8 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  itemSuaPhim: any;
-  flag: any;
+  itemJob: any;
   sideMenuContext: any;
 
   userEdit: any;
@@ -21,7 +20,7 @@ export class DashboardComponent implements OnInit {
     this.userEdit = user;
   }
 
-  suaPhim(event: any) {
-    this.itemSuaPhim = event;
+  openModalJob(event: any) {
+    this.itemJob = event
   }
 }
