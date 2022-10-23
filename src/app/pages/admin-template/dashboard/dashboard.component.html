@@ -1,71 +1,80 @@
-
+<!-- Note: https://stackoverflow.com/questions/66546974/angular-material-mat-drawer-container-not-showing-backdrop-with-multiple-mat-dr -->
 
 <!-- Main UI -->
 <div class="dashboard">
+  <div class="container-fluid d-flex">
     <button type="button" mat-button (click)="drawer.toggle()">
-        <i class="fas fa-bars"></i>
+      <i class="fas fa-bars"></i>
     </button>
-    <mat-drawer-container class="example-container" autosize>
-      <mat-drawer #drawer class="example-sidenav" mode="side">
-        <button type="button" mat-button (click)="drawer.toggle()">
-            <i class="fas fa-angle-double-left"></i>
-        </button>
-        <nav>
-          <div class="nav nav-tabs flex-column" id="nav-tab" role="tablist">
-            <a
-              mat-raised-button
-              class="nav-item nav-link active"
-              id="nav-user-tab"
-              data-toggle="tab"
-              href="#nav-user"
-              role="tab"
-              aria-controls="nav-user"
-              aria-selected="true"
-              >Quản lý người dùng</a
-            >
-            <a
-              mat-raised-button
-              class="nav-item nav-link"
-              id="nav-phim-tab"
-              data-toggle="tab"
-              href="#nav-phim"
-              role="tab"
-              aria-controls="nav-phim"
-              aria-selected="false"
-              >Quản lý công việc
-            </a>
-          </div>
-        </nav>
-      </mat-drawer>
-  
-      <div class="example-sidenav-content">
-        <div class="tab-content" id="nav-tabContent">
-          <div
-            class="tab-pane fade show active"
-            id="nav-user"
-            role="tabpanel"
-            aria-labelledby="nav-user-tab"
-          >
-            <app-user-manager (eventEditUser)="openModalUser($event)">
-            </app-user-manager>
-          </div>
-          <div
-            class="tab-pane fade"
-            id="nav-phim"
-            role="tabpanel"
-            aria-labelledby="nav-phim-tab"
-          >
-            <app-course-manager></app-course-manager>
-          </div>
-        </div>
-      </div>
-    </mat-drawer-container>
+    <div class="dashboard__title">
+      <h4 class="pt-2">Admin Dashboard</h4>
+    </div>
   </div>
-  
-  <app-modal-user-manager
-    [userEdit]="userEdit"
-  ></app-modal-user-manager>
-  
-  
-  <app-modal-course-manager [flagModal]="flag" [itemSuaPhim]="itemSuaPhim"></app-modal-course-manager>
-  
+
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="over">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        <i class="fas fa-angle-double-left"></i>
+      </button>
+      <nav>
+        <div class="nav nav-tabs flex-column" id="nav-tab" role="tablist">
+          <a
+            mat-raised-button
+            class="nav-item nav-link active"
+            id="nav-user-tab"
+            data-toggle="tab"
+            href="#nav-user"
+            role="tab"
+            aria-controls="nav-user"
+            aria-selected="true"
+            (click)="drawer.toggle(); sideMenuContext = 'section-1'"
+            >Quản lý người dùng</a
+          >
+          <a
+            mat-raised-button
+            class="nav-item nav-link"
+            id="nav-phim-tab"
+            data-toggle="tab"
+            href="#nav-phim"
+            role="tab"
+            aria-controls="nav-phim"
+            aria-selected="false"
+            (click)="drawer.toggle(); sideMenuContext = 'section-2'"
+            >Quản lý công việc
+          </a>
+        </div>
+      </nav>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+      <div class="tab-content" id="nav-tabContent">
+        <ng-container
+          class="tab-pane fade show active"
+          id="nav-user"
+          role="tabpanel"
+          aria-labelledby="nav-user-tab"
+          *ngIf="sideMenuContext === 'section-1'"
+        >
+          <app-user-manager (eventEditUser)="openModalUser($event)">
+          </app-user-manager>
+        </ng-container>
+        <ng-container
+          class="tab-pane fade"
+          id="nav-phim"
+          role="tabpanel"
+          aria-labelledby="nav-phim-tab"
+          *ngIf="sideMenuContext === 'section-2'"
+        >
+          <app-course-manager></app-course-manager>
+        </ng-container>
+      </div>
+    </div>
+  </mat-drawer-container>
+</div>
+
+<app-modal-user-manager [userEdit]="userEdit"></app-modal-user-manager>
+
+<app-modal-course-manager
+  [flagModal]="flag"
+  [itemSuaPhim]="itemSuaPhim"
+></app-modal-course-manager>
