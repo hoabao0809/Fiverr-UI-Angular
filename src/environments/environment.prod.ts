@@ -3,6 +3,6 @@
 // };
 
 export const environment = {
-  production: false,
-  urlApi: 'http://localhost:3000/api',
+  production: true,
+  urlApi: 'https://fiverr-api-project.herokuapp.com/api',
 };
