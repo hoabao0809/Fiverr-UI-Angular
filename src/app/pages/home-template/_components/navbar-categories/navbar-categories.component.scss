@@ -20,30 +20,20 @@
   display: none !important;
 }
 
-// .navbar-inverse {
-//   background-color: white !important;
-//   transition: 0.2s ease-in-out;
-//   border-bottom: 1px solid #e4e5e7;
-// }
+.navbar-inverse #join,
+.navbar-inverse #logout {
+  transition: 0.2s ease-in-out;
+}
 
-// .navbar-inverse .brand-name {
-//   fill: #404145 !important;
-// }
+.navbar-inverse #join:hover,
+.navbar-inverse #logout:hover {
+  background-color: #1dbf73 !important;
+  border-radius: 5px;
 
-// .navbar-inverse .nav-link > a,
-// .navbar-inverse .nav-item > a,
-// .navbar-inverse .nav-item > i {
-//   font-weight: 600;
-//   color: #7a7d85 !important;
-//   transition: color 0.2s;
-// }
-
-// .navbar-inverse .nav-link > a:hover,
-// .navbar-inverse .nav-item > a:hover,
-// .navbar-inverse .nav-item > i {
-//   font-weight: 600;
-//   color: #1dbf73 !important;
-// }
+  a {
+    color: #fff !important;
+  }
+}
 
 .logout {
   border: solid 0.5px;
@@ -58,20 +48,6 @@
   border: solid 0.5px #19a463;
   color: #fff;
 }
-
-// .navbar-inverse .nav-link > a,
-// .navbar-inverse .nav-item > a {
-//   transition: 0.2s ease-in-out;
-// }
-
-// .navbar-inverse .nav-link > a:hover,
-// .navbar-inverse .nav-item > .logout:hover {
-//   color: #fff !important;
-// }
-
-// .navbar-inverse a .nav-link .logout:hover {
-//   color: #fff;
-// }
 
 .second-nav {
   display: none;
@@ -216,4 +192,9 @@ li {
 
 .navbar-inverse {
   border-color: transparent !important;
+}
+
+.navbar-nav > li > a.logout,
+.navbar-nav > li > a.join {
+  padding: 8px 10px;
 }

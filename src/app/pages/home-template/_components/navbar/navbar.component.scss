@@ -58,6 +58,21 @@
   color: #1dbf73 !important;
 }
 
+.navbar-inverse #join,
+  .navbar-inverse #logout {
+  transition: 0.2s ease-in-out;
+}
+
+.navbar-inverse #join:hover,
+  .navbar-inverse #logout:hover {
+  background-color: #1dbf73 !important;
+  border-radius: 5px;
+
+  a {
+    color: #fff !important;
+  }
+}
+
 .logout {
   border: solid 0.5px;
   border-radius: 5px;
@@ -242,4 +257,9 @@ li {
 
 .navbar-inverse {
   border-color: transparent !important;
+}
+
+.navbar-nav > li > a.logout,
+.navbar-nav > li > a.join {
+  padding: 8px 10px;
 }

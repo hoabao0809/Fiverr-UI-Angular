@@ -36,7 +36,7 @@
         </a>
 
         <form id="search-header">
-          <div class="form-group has-search" >
+          <div class="form-group has-search">
             <span class="fa fa-search form-control-feedback"></span>
             <input
               type="search"
@@ -111,18 +111,18 @@
                   </div>
                 </a>
               </li>
-              <li class="nav-item active">
+              <li class="nav-item active" id="logout">
                 <a class="nav-link logout" (click)="logOut()"> Log out </a>
               </li>
             </ng-template>
 
             <ng-template #blockOut>
-              <li class="nav-item active">
+              <li class="nav-item active" id="join">
                 <a
                   type="button"
                   data-toggle="modal"
                   data-target="#loginModal"
-                  class="btn btn-outline-success my-2 my-sm-0"
+                  class="btn btn-outline-success my-2 my-sm-0 join"
                   type="submit"
                 >
                   Join
