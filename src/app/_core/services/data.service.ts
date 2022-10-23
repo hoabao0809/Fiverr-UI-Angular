@@ -99,8 +99,6 @@ export class DataService {
             });
           });
         }
-
-        // alert('Error');
         break;
       case 404:
         break;

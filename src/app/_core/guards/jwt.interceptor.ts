@@ -12,11 +12,13 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     // Get the auth token from the service.
     let authToken = '';
+    let adminToken = '';
 
     if (localStorage.getItem('UserAdmin')) {
-      const userInfo: any = localStorage.getItem('UserAdmin');
-      authToken = JSON.parse(userInfo).token;
-    } else if (localStorage.getItem('ClientUser')) {
+      const adminInfo: any = localStorage.getItem('UserAdmin');
+      adminToken = JSON.parse(adminInfo).token;
+    } 
+    if (localStorage.getItem('ClientUser')) {
       const userInfo: any = localStorage.getItem('ClientUser');
       authToken = JSON.parse(userInfo).token;
     }
@@ -25,8 +27,9 @@ export class AuthInterceptor implements HttpInterceptor {
     // cloned headers, updated with the authorization.
 
     const authReq = req.clone({
-      headers: req.headers.set('Authorization', 'Bearer ' + `${authToken}`),
-      // .set('token', `${adminToken}`)
+      headers: req.headers
+        .set('Authorization', 'Bearer ' + `${adminToken}`)
+        .set('Authentication', `${authToken}`),
     });
 
     // send cloned request with header to the next handler.

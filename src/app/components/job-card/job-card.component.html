@@ -1,7 +1,7 @@
-<div class="card" style="width: 18rem">
-  <div >
+<div class="card" style="width: 18rem; height: 21rem">
+  <div class="cardImg">
     <img
-    class="card-img"
+      class="card-img"
       [src]="job && job.image ? job.image : 'assets/img/fiverr.jpg'"
       alt=""
       (click)="navigateDetail()"
@@ -23,10 +23,13 @@
         style="text-decoration: none; cursor: pointer"
         class="card-text"
       >
-        {{ job.name | slice:0:30 }} ...
+        {{ job.name | slice: 0:30 }} ...
       </a>
       <div class="card-rate">
-        <i class="fas fa-star"><span style="padding-right: 5px;">{{job.rating}}.0</span></i> <span>(1k+)</span>
+        <i class="fas fa-star"
+          ><span style="padding-right: 5px">{{ job.rating }}.0</span></i
+        >
+        <span>(1k+)</span>
       </div>
     </div>
     <div class="card-bottom">

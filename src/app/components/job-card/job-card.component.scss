@@ -7,9 +7,17 @@
   }
 }
 
-.card-img {
+.cardImg {
   cursor: pointer;
+  width: 100%;
+  height: 10rem;
+}
 
+.card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  
   transition: all 0.3s ease;
 
   &:hover {
