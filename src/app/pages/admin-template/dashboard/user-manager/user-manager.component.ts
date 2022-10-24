@@ -30,7 +30,7 @@ export class UserManagerComponent implements OnInit {
     });
   }
 
-  suaNguoiDung(user: any) {
+  editUser(user: any) {
     this.eventEditUser.emit(user);
   }
 
@@ -38,8 +38,8 @@ export class UserManagerComponent implements OnInit {
     this.eventEditUser.emit(null);
   }
 
-  xoaNguoiDung(_id: any) {
-    this.data.delete(`users/${_id}`).subscribe((data: any) => {
+  deleteUser(_id: any) {
+    this.data.delete(`admin/users/${_id}`).subscribe((data: any) => {
       Swal.fire({
         position: 'center',
         icon: 'success',

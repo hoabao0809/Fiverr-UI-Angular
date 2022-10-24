@@ -41,7 +41,7 @@ export class ModalJobManagerComponent implements OnInit {
   ngOnInit(): void {}
 
   CheckModal() {
-    if (this.itemJob.isEdited === true) {
+    if (this.itemJob?.isEdited === true) {
       this.action = 'Add Job ';
     } else {
       this.action = 'Update Job';

@@ -17,16 +17,16 @@ export class CourseManagerComponent implements OnInit {
   isEdited: any;
 
   // Destroy API
-  getListMovieList = new Subscription();
+  getJobsManagement = new Subscription();
 
   constructor(private data: DataService, private router: Router) {}
 
   ngOnInit(): void {
-    this.getListMovie();
+    this.getJobs();
   }
 
-  getListMovie() {
-    this.getListMovieList = this.data.get('jobs').subscribe((res) => {
+  getJobs() {
+    this.getJobsManagement = this.data.get('jobs').subscribe((res) => {
       this.listJobs = res;
     });
   }
@@ -41,7 +41,7 @@ export class CourseManagerComponent implements OnInit {
     this.eventEditMovie.emit({ isEdited: this.isEdited, item: {} });
   }
 
-  xoaPhim(item: any) {
+  deleteJob(item: any) {
     const uri = `jobs/${item._id} `;
     this.data.delete(uri).subscribe(
       (data: any) => {
@@ -52,7 +52,7 @@ export class CourseManagerComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          this.getListMovie();
+          this.getJobs();
         });
       },
       (err) => {
@@ -90,6 +90,6 @@ export class CourseManagerComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.getListMovieList.unsubscribe();
+    this.getJobsManagement.unsubscribe();
   }
 }

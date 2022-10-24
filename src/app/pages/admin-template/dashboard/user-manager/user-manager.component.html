@@ -56,11 +56,11 @@
                   class="mr-1"
                   data-toggle="modal"
                   data-target="#modalQuanLyThanhVien"
-                  (click)="suaNguoiDung(user)"
+                  (click)="editUser(user)"
                 >
                   Sửa
                 </button>
-                <a mat-raised-button color="warn" (click)="xoaNguoiDung(user._id)">
+                <a mat-raised-button color="warn" (click)="deleteUser(user._id)">
                     <i class="fas fa-window-close"></i>
                 </a>
               </td>
