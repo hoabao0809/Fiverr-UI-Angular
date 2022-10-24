@@ -64,7 +64,7 @@ export class SubtypeJobListComponent implements OnInit {
   getTypeJob() {
     this.subTypeJobList = this.data
       .get(`sub-type-jobs/${this.idSubjob}`)
-      .subscribe((res) => {
+      .subscribe((res) => {   
         this.subJob = res;
       });
   }
@@ -93,7 +93,6 @@ export class SubtypeJobListComponent implements OnInit {
     let filterService = event.source.name;
     let filterCondition = event.checked;
     this.conditionObject = { [filterService]: filterCondition };
-    // console.log(this.conditionObject);
 
     if (event.checked) {
       this.tempArray = this.arrays.filter(
@@ -126,9 +125,7 @@ export class SubtypeJobListComponent implements OnInit {
           let firstArray = this.newArray[i];
           for (let i = 0; i < firstArray.length; i++) {
             let obj = firstArray[i];
-            // console.log(obj);
             this.productArray.push(obj);
-            console.log(this.productArray.length);
             // if (this.productArray.length === 0) {
             //   this.productArray.push(this.backup);
             // }

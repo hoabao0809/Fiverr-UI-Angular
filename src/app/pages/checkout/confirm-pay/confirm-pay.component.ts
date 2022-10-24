@@ -32,7 +32,6 @@ export class ConfirmPayComponent implements OnInit {
   }
 
   payJob() {
-    console.log(123);
     this.data.patch(`jobs/booking/${this.idBookedJob}`, {}).subscribe((res) => {
       Swal.fire({
         position: 'center',

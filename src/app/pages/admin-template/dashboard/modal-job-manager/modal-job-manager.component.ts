@@ -3,11 +3,11 @@ import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { DataService } from 'src/app/_core/services/data.service';
 @Component({
-  selector: 'app-modal-course-manager',
-  templateUrl: './modal-course-manager.component.html',
-  styleUrls: ['./modal-course-manager.component.scss'],
+  selector: 'app-modal-job-manager',
+  templateUrl: './modal-job-manager.component.html',
+  styleUrls: ['./modal-job-manager.component.scss'],
 })
-export class ModalCourseManagerComponent implements OnInit {
+export class ModalJobManagerComponent implements OnInit {
   @Input() itemJob: any;
   @ViewChild('formJobManager', { static: false }) formJobManager!: NgForm;
   action: any;
@@ -42,9 +42,9 @@ export class ModalCourseManagerComponent implements OnInit {
 
   CheckModal() {
     if (this.itemJob.isEdited === true) {
-      this.action = 'Thêm Phim';
+      this.action = 'Add Job ';
     } else {
-      this.action = 'Sửa Phim';
+      this.action = 'Update Job';
     }
   }
 

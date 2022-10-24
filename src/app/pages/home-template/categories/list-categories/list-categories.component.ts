@@ -14,7 +14,7 @@ export class ListCategoriesComponent implements OnInit {
   categoryName: any;
   subTypeDetail: any;
   categoryID: any;
-  // subTypeJob: any
+  subtitle:any
 
   // Destroy API
   getSubTypeJobsList = new Subscription();
@@ -43,6 +43,7 @@ export class ListCategoriesComponent implements OnInit {
     this.getSubTypeJobsList = this.data
       .get(`type-jobs/${this.idTypejob}`)
       .subscribe((res) => {
+        this.subtitle = res.subtitle        
         this.categoryName = res.name;
         this.subTypeJobs = res.subTypeJobs;
       });

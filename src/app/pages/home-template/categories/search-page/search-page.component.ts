@@ -78,8 +78,6 @@ export class SearchPageComponent implements OnInit {
           this.servicesCount = this.productArray.length;
           this.arrays = res;
           this.backup = [...res];
-
-          console.log(this.backup);
         },
         (err) => {
           throw err;
@@ -127,9 +125,7 @@ export class SearchPageComponent implements OnInit {
           let firstArray = this.newArray[i];
           for (let i = 0; i < firstArray.length; i++) {
             let obj = firstArray[i];
-            // console.log(obj);
             this.productArray.push(obj);
-            console.log(this.productArray.length);
             // if (this.productArray.length === 0) {
             //   this.productArray.push(this.backup);
             // }

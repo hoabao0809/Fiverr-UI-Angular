@@ -3,11 +3,13 @@
     <div class="services-container">
       <div class="services-header">
         <h2>{{ subJob?.name }}</h2>
-        <p class="subtitle">A single place, millions of creative talents</p>
-        <a class="video"
-          ><i style="margin-right: 5px" class="fas fa-play-circle"></i>How
-          Fiverr Works
-        </a>
+        <p class="subtitle">
+          {{ subJob?.description }}
+          <a class="video"
+            ><i style="margin-right: 5px" class="fas fa-play-circle"></i>How
+            Fiverr Works
+          </a>
+        </p>
       </div>
 
       <div class="services-filter py-3">

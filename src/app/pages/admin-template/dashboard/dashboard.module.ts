@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import { CourseManagerComponent } from './course-manager/course-manager.component';
+import { CourseManagerComponent } from './job-manager/job-manager.component';
 import { UserManagerComponent } from './user-manager/user-manager.component';
-import { ModalCourseManagerComponent } from './modal-course-manager/modal-course-manager.component';
+import { ModalJobManagerComponent } from './modal-job-manager/modal-job-manager.component';
 import { ModalUserManagerComponent } from './modal-user-manager/modal-user-manager.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/_core/shares/material-module';
@@ -16,7 +16,7 @@ import { MaterialModule } from 'src/app/_core/shares/material-module';
     DashboardComponent,
     CourseManagerComponent,
     UserManagerComponent,
-    ModalCourseManagerComponent,
+    ModalJobManagerComponent,
     ModalUserManagerComponent
   ],
   imports: [
