@@ -30,60 +30,35 @@ export class ModalUserManagerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.user = {
-    //   name: '',
-    //   email: '',
-    //   phone: '',
-    //   birthday: '',
-    //   gender: false,
-    //   role: '',
-    //   skill: '',
-    //   certification: '',
-    // };
+    this.user = {
+      name: '',
+      email: '',
+      password: '',
+      phone: '',
+      gender: '',
+      role: '',
+      skill: '',
+      certification: '',
+    };
   }
 
   // Show data ra modal
-  // ngOnChanges() {
-  //   if (this.formUserManger) {
-  //     if (this.userEdit) {
-  //       // const {
-  //       //   name,
-  //       //   email,
-  //       //   phone,
-  //       //   birthday,
-  //       //   gender,
-  //       //   role,
-  //       //   skill,
-  //       //   certification,
-  //       // } = this.userEdit;
-  //       // let defaultUserEdit: any = {
-  //       //   name,
-  //       //   email,
-  //       //   phone,
-  //       //   birthday,
-  //       //   gender,
-  //       //   role,
-  //       //   skill,
-  //       //   certification,
-  //       // };
-  //       // console.log(this.userEdit);
-  //       // console.log(this.userEdit);
+  ngOnChanges() {
+    if (this.formUserManger) {
+      if (this.userEdit) {
+        const { _id, bookingJob, __v, ...rest } = this.userEdit;
 
-  //       // const { avatar, password, __v, deleteAt, bookingJob, ...restUserEdit } =
-  //       //   this.userEdit;
+        // let convertDate: any = this.datePipe.transform(
+        //   this.userEdit.birthday,
+        //   'yyyy-MM-dd'
+        // );
 
-  //       // let convertDate: any = this.datePipe.transform(
-  //       //   this.userEdit.birthday,
-  //       //   'yyyy-MM-dd'
-  //       // );
-
-  //       this.formUserManger.setValue({ ...this.userEdit });
-  //     } else {
-  //       console.log(this.user);
-  //       this.formUserManger.setValue({ ...this.user });
-  //     }
-  //   }
-  // }
+        this.formUserManger.setValue({ ...rest });
+      } else {
+        this.formUserManger.setValue({ ...this.user });
+      }
+    }
+  }
 
   createUser(userInput: any) {
     // ************Xử lý đầu vào Input trả về data đúng format API****************
@@ -116,27 +91,22 @@ export class ModalUserManagerComponent implements OnInit {
     // ********** Kiểm tra người dùng sử dụng modal Create / Edit
     if (this.userEdit) {
       // ForEach để remove các input người dùng không update
-      Object.keys(tempUserInfo).forEach((key) => {
-        if (!tempUserInfo[key]) delete tempUserInfo[key];
-      });
+
+      // Object.keys(tempUserInfo).forEach((key) => {
+      //   if (!tempUserInfo[key]) delete tempUserInfo[key];
+      // });
 
       // Bóc tách các keys cho đúng format API
-      const { avatar, bookingJob, deleteAt, _id, __v, ...rest } = this.userEdit;
+      const { _id, __v, ...rest } = this.userEdit;
       // let convertFormatDate: any = String(
       //   this.datePipe.transform(rest.birthday, 'yyyy-MM-dd')
       // );
 
       // Xử lý format date Birthday
-      let updatedUser: any = Object.assign(
-        {},
-        rest,
-        tempUserInfo
-        //   , {
-        //   birthday: convertFormatDate,
-        // }
-      );
+      let updatedUser: any = { ...rest, ...tempUserInfo };
+      console.log(updatedUser);
 
-      this.data.put(`users/${this.userEdit._id}`, updatedUser).subscribe(
+      this.data.put(`admin/users/${this.userEdit._id}`, updatedUser).subscribe(
         () => {
           Swal.fire({
             position: 'center',
@@ -187,7 +157,7 @@ export class ModalUserManagerComponent implements OnInit {
 
   // Hàm tách Input (skills, certifications) từ người dùng và tạo Array
   generateArray(key: any, array: any) {
-    let tempSkills: any = key.split(',');
+    let tempSkills: any = key.toString().split(',');
     // this.skills.push(tempSkills.trim())
     tempSkills.forEach((item: any) => {
       array.push(item.trim().charAt(0).toUpperCase() + item.trim().slice(1));

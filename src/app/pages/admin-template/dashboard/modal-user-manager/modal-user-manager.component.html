@@ -63,16 +63,18 @@
                     name="email"
                     ngModel
                     #email="ngModel"
+                    [disabled]="userEdit"
                   />
                 </div>
                 <div class="form-group">
                   <label for="">Mật khẩu</label>
                   <input
-                    type="text"
+                    type="password"
                     class="form-control"
                     name="password"
                     ngModel
                     #Password="ngModel"
+                    [disabled]="userEdit"
                   />
                 </div>
 
@@ -87,7 +89,7 @@
                       #soDT="ngModel"
                     />
                   </div>
-<!-- 
+                  <!-- 
                   <div class="user-birthday">
                     <mat-form-field appearance="fill">
                       <mat-label>Birthday</mat-label>
