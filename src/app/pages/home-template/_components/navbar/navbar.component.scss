@@ -59,12 +59,12 @@
 }
 
 .navbar-inverse #join,
-  .navbar-inverse #logout {
+.navbar-inverse #logout {
   transition: 0.2s ease-in-out;
 }
 
 .navbar-inverse #join:hover,
-  .navbar-inverse #logout:hover {
+.navbar-inverse #logout:hover {
   background-color: #1dbf73 !important;
   border-radius: 5px;
 
@@ -157,7 +157,7 @@ li {
   font-size: 16px;
   line-height: 24px;
   color: #62646a;
-  padding: 8px;
+  padding: 8px 0;
   text-decoration: none;
 }
 
@@ -234,12 +234,13 @@ li {
 
   a {
     position: relative;
-    transition: 0.2s all ease-in-out;
+    transition: border-bottom 0.2s all ease-in-out;
 
     &:hover {
       // text-decoration: underline;
-      background-color: #1dbf73;
-      color: #fff;
+      // background-color: #1dbf73;
+      color: #1dbf73;
+      border-bottom: 3px solid #1dbf73;
     }
   }
 }

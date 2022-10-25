@@ -42,7 +42,7 @@ export class CourseManagerComponent implements OnInit {
   }
 
   deleteJob(item: any) {
-    const uri = `jobs/${item._id} `;
+    const uri = `admin/jobs/${item._id} `;
     this.data.delete(uri).subscribe(
       (data: any) => {
         Swal.fire({
@@ -52,7 +52,7 @@ export class CourseManagerComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          this.getJobs();
+          this.handleSearch();
         });
       },
       (err) => {
