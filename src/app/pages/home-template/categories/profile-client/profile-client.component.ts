@@ -31,10 +31,10 @@ export class ProfileClientComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    localStorage.setItem('wait', JSON.stringify(true));
-    setTimeout(() => {
-      localStorage.removeItem('wait');
-    }, 3000);
+    // localStorage.setItem('wait', JSON.stringify(true));
+    // setTimeout(() => {
+    //   localStorage.removeItem('wait');
+    // }, 3000);
     
     this.checkLogin();
     this.checkLogin();

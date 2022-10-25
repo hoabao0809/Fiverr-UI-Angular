@@ -35,7 +35,6 @@ export class SearchPageComponent implements OnInit {
   ];
 
   // Destroy API
-  // getTypeJobList = new Subscription();
   searchJobList = new Subscription();
 
   constructor(
@@ -44,12 +43,11 @@ export class SearchPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // localStorage.setItem('wait', JSON.stringify(true));
-    // setTimeout(() => {
-    //   localStorage.removeItem('wait');
-    // }, 3000);
+    localStorage.setItem('wait', JSON.stringify(true));
+    setTimeout(() => {
+      localStorage.removeItem('wait');
+    }, 3000);
     this.getParamId();
-    // this.getTypeJob();
     this.searchJob();
   }
 
@@ -60,14 +58,6 @@ export class SearchPageComponent implements OnInit {
   productArray: any = [];
   arrays: any = [];
   backup: any = [];
-
-  // getTypeJob() {
-  //   this.getTypeJobList = this.data
-  //     .get(`sub-type-jobs/${this.searchKeyword}`)
-  //     .subscribe((res) => {
-  //       this.subJob = res;
-  //     });
-  // }
 
   searchJob() {
     this.searchJobList = this.data
@@ -89,7 +79,6 @@ export class SearchPageComponent implements OnInit {
   newArray: any = [];
 
   onChange(event: any) {
-    // this.filterCondition = {event.source.name: event.checked}
     let filterService = event.source.name;
     let filterCondition = event.checked;
     this.conditionObject = { [filterService]: filterCondition };
@@ -140,7 +129,6 @@ export class SearchPageComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    // this.getTypeJobList.unsubscribe();
     this.searchJobList.unsubscribe();
   }
 }
