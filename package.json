@@ -7,12 +7,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "postinstall": "ng build --aot -prod",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^12.2.18",
     "@angular/animations": "~12.2.0",
     "@angular/cdk": "^12.2.13",
     "@angular/common": "~12.2.0",
