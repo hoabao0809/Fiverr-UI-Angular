@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { DataService } from 'src/app/_core/services/data.service';
+
 @Component({
   selector: 'app-modal-job-manager',
   templateUrl: './modal-job-manager.component.html',
@@ -11,6 +12,7 @@ export class ModalJobManagerComponent implements OnInit {
   @Input() itemJob: any;
   @ViewChild('formJobManager', { static: false }) formJobManager!: NgForm;
   action: any;
+  isEdited: any;
 
   EmptyModal = {
     name: '',
@@ -27,40 +29,57 @@ export class ModalJobManagerComponent implements OnInit {
 
   constructor(private data: DataService) {}
 
+  ngOnInit(): void {}
+
   ngOnChanges() {
     this.CheckModal();
     if (this.formJobManager) {
-      if (this.itemJob.isEdited === false) {
-        this.formJobManager.setValue({ ...this.itemJob.item });
+      if (this.itemJob.isEdited) {
+        const { _id, userCreated, __v, ...rest } = this.itemJob.item;
+        this.formJobManager.setValue({ ...rest });
       } else {
         this.formJobManager.setValue({ ...this.EmptyModal });
       }
     }
   }
 
-  ngOnInit(): void {}
-
   CheckModal() {
-    if (this.itemJob?.isEdited === true) {
-      this.action = 'Add Job ';
+    this.isEdited = this.itemJob?.isEdited;
+    if (this.itemJob?.isEdited) {
+      this.action = 'Update Job ';
     } else {
-      this.action = 'Update Job';
+      this.action = 'Add Job';
     }
   }
 
   createJob(jobInput: any) {
-    // this.EmptyModal.name = this.formJobManager.value.name;
-    // this.EmptyModal.image = this.formJobManager.value.image;
-    // this.EmptyModal.rating = this.formJobManager.value.rating;
-    // this.EmptyModal.price = this.formJobManager.value.price;
-    // this.EmptyModal.proServices = this.formJobManager.value.proServices;
-    // this.EmptyModal.localSellers = this.formJobManager.value.localSellers;
-    // this.EmptyModal.onlineSellers = this.formJobManager.value.onlineSellers;
-    // this.EmptyModal.deliveryTime = this.formJobManager.value.deliveryTime;
-    // this.EmptyModal.type = this.formJobManager.value.type;
-    // this.EmptyModal.subType = this.formJobManager.value.subType;
-
     if (this.itemJob.isEdited) {
+      const { _id, userCreated, __v, ...rest } = this.itemJob.item;
+      const updatedJob: any = { ...rest, ...jobInput };
+
+      this.data
+        .put(`admin/jobs/${this.itemJob.item._id}`, updatedJob)
+        .subscribe(
+          (data: any) => {
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(() => {
+              window.location.href = '/admin';
+            });
+          },
+          (err) => {
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        );
+    } else {
       this.data.post('admin/jobs', jobInput).subscribe(
         (data: any) => {
           Swal.fire({
@@ -76,37 +95,6 @@ export class ModalJobManagerComponent implements OnInit {
           console.log(err);
         }
       );
-    } else {
-      console.log('edit job');
-
-      // this.data
-      //   .post('QuanLyKhoaHoc/ThemKhoaHoc', {
-      //     ...this.EmptyModal,
-      //     biDanh: 'abc',
-      //     danhGia: '5',
-      //     taiKhoanNguoiTao: 'TRUONG TAN KHAI',
-      //     maNhom: 'GP08',
-      //   })
-      //   .subscribe(
-      //     (data: any) => {
-      //       Swal.fire({
-      //         position: 'center',
-      //         icon: 'success',
-      //         showConfirmButton: false,
-      //         timer: 1500,
-      //       }).then(() => {
-      //         window.location.reload();
-      //       });
-      //     },
-      //     (err) => {
-      //       Swal.fire({
-      //         position: 'center',
-      //         icon: 'success',
-      //         showConfirmButton: false,
-      //         timer: 1500,
-      //       });
-      //     }
-      //   );
     }
   }
 }

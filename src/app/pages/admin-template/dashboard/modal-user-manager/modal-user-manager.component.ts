@@ -91,20 +91,18 @@ export class ModalUserManagerComponent implements OnInit {
     // ********** Kiểm tra người dùng sử dụng modal Create / Edit
     if (this.userEdit) {
       // ForEach để remove các input người dùng không update
-
       // Object.keys(tempUserInfo).forEach((key) => {
       //   if (!tempUserInfo[key]) delete tempUserInfo[key];
       // });
-
-      // Bóc tách các keys cho đúng format API
-      const { _id, __v, ...rest } = this.userEdit;
+      
+      // Xử lý format date Birthday
       // let convertFormatDate: any = String(
       //   this.datePipe.transform(rest.birthday, 'yyyy-MM-dd')
       // );
 
-      // Xử lý format date Birthday
+      const { _id, __v, ...rest } = this.userEdit;
+
       let updatedUser: any = { ...rest, ...tempUserInfo };
-      console.log(updatedUser);
 
       this.data.put(`admin/users/${this.userEdit._id}`, updatedUser).subscribe(
         () => {

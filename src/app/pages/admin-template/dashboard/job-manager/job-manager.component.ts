@@ -32,12 +32,12 @@ export class CourseManagerComponent implements OnInit {
   }
 
   updateJob(item: any) {
-    this.isEdited = false;
+    this.isEdited = true;
     this.eventEditMovie.emit({ isEdited: this.isEdited, item });
   }
 
   addJob() {
-    this.isEdited = true;
+    this.isEdited = false;
     this.eventEditMovie.emit({ isEdited: this.isEdited, item: {} });
   }
 
