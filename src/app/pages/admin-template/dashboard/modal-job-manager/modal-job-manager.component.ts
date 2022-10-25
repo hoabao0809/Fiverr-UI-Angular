@@ -88,11 +88,10 @@ export class ModalJobManagerComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500,
           }).then(() => {
-            window.location.reload();
+            window.location.href = '/admin';
           });
         },
         (err) => {
-          console.log(err);
         }
       );
     }

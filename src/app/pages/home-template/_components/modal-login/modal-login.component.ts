@@ -45,8 +45,6 @@ export class ModalLoginComponent implements OnInit {
         }
       },
       (err: any) => {
-        console.log(err);
-
         Swal.fire({
           position: 'center',
           icon: 'warning',

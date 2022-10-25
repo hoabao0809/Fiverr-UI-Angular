@@ -94,7 +94,7 @@ export class ModalUserManagerComponent implements OnInit {
       // Object.keys(tempUserInfo).forEach((key) => {
       //   if (!tempUserInfo[key]) delete tempUserInfo[key];
       // });
-      
+
       // Xử lý format date Birthday
       // let convertFormatDate: any = String(
       //   this.datePipe.transform(rest.birthday, 'yyyy-MM-dd')
@@ -113,7 +113,7 @@ export class ModalUserManagerComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500,
           }).then(() => {
-            window.location.reload();
+            window.location.href = '/admin';
           });
         },
         (err) => {
@@ -137,7 +137,7 @@ export class ModalUserManagerComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500,
           }).then(() => {
-            window.location.reload();
+            window.location.href = '/admin';
           });
         },
         (err) => {

@@ -42,7 +42,6 @@ export class ModalSignupComponent implements OnInit {
         });
       },
       (err: any) => {
-        console.log(err);
         Swal.fire({
           position: 'center',
           icon: 'warning',
