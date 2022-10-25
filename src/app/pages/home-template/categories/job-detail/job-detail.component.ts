@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/_core/services/data.service';
-import { Lightbox } from 'ngx-lightbox';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -56,8 +55,7 @@ export class JobDetailComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private data: DataService,
-    private _lightbox: Lightbox
+    private data: DataService
   ) {}
 
   ngOnInit(): void {

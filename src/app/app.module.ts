@@ -9,7 +9,6 @@ import { AuthInterceptor } from './_core/guards/jwt.interceptor';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './_core/shares/material-module';
-import {BreadcrumbModule} from 'angular-crumbs';
 import {DatePipe} from '@angular/common';
 
 @NgModule({
@@ -22,7 +21,6 @@ import {DatePipe} from '@angular/common';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    BreadcrumbModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, DatePipe
   
