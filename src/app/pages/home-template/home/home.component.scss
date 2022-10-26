@@ -10,6 +10,10 @@
   }
 }
 
+.subcategory-carousel h2 {
+  padding: 0 1rem;
+}
+
 .lohp-row {
   margin: 0 auto 48px;
 }
@@ -121,7 +125,6 @@ li {
   width: 280px !important;
 }
 
-
 // (4) =================== Services =========================
 .selling-proposition-wrapper {
   background-color: #f1fdf7;
@@ -157,7 +160,6 @@ li {
     padding: 0 8px;
   }
 }
-
 
 @media only screen and (min-width: 600px) {
   .selling-left {
@@ -276,7 +278,6 @@ h2 {
 .picture-wrapper {
   position: relative;
   cursor: pointer;
- 
 }
 
 @media only screen and (min-width: 900px) {
@@ -334,14 +335,18 @@ h2 {
 // }
 
 // Guarantee
-.main-categories .categories-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.main-categories {
+  h2 {
+    padding: 0 1rem 1rem;
+  }
+  .categories-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
 }
-
 .categories-list li {
   width: 50%;
   padding: 0 10px 32px;

@@ -43,7 +43,7 @@
 .filter-options {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  // align-items: center;
 }
 
 .filter-option {
@@ -63,9 +63,9 @@
     font-size: 16px;
   }
 
-  &:first-child {
-    margin-left: 24px;
-  }
+  // &:first-child {
+  //   margin-left: 24px;
+  // }
 
   i {
     color: #95979d;
@@ -145,6 +145,22 @@
   min-width: 245px;
 }
 
+.services-filter .row {
+  row-gap: 1rem;
+}
+
 .subtitle {
   width: 60%;
+}
+
+.filter-results .row {
+  justify-content: center !important;
+  row-gap: 3rem;
+  margin: auto;
+}
+
+@media only screen and (min-width: 991px) {
+  .filter-results .row {
+    justify-content: normal !important;
+  }
 }

@@ -264,3 +264,11 @@ li {
 .navbar-nav > li > a.join {
   padding: 8px 10px;
 }
+
+.navbar-cover {
+  justify-content: flex-start !important;
+
+  .navbar-toggler {
+    margin-left: auto;
+  }
+}
