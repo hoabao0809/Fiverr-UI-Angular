@@ -1,4 +1,4 @@
 # Link Deploy Firebase
 
-https://fiverr-angularapp.web.app
+https://fiverr-ui-angular.web.app/
 
